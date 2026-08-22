@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="./favicon.ico"/>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  
         
         </script>  
     
@@ -23,6 +23,214 @@
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,700|Oxygen:700" rel="stylesheet">
     <link rel="stylesheet" href="dist/css/style.css">
     <script src="https://unpkg.com/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+
+    <style>
+        :root {
+            --support-accent: #6c63ff;
+            --support-accent-2: #8b5cf6;
+            --support-bg: rgba(255,255,255,.08);
+            --support-border: rgba(255,255,255,.16);
+        }
+
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
+
+        .site-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 30;
+            padding: 18px 0;
+        }
+
+        .site-header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            min-height: 52px;
+        }
+
+        .header-brand { flex: 0 0 auto; }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: auto;
+        }
+
+        .header-nav a {
+            color: rgba(255,255,255,.88);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 1;
+            border-radius: 999px;
+            padding: 12px 16px;
+            transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+        }
+
+        .header-nav a:hover {
+            color: #fff;
+            background: rgba(255,255,255,.08);
+            transform: translateY(-1px);
+        }
+
+        .header-nav .support-pill {
+            color: #fff;
+            background: linear-gradient(135deg, var(--support-accent), var(--support-accent-2));
+            border: 1px solid rgba(255,255,255,.18);
+            box-shadow: 0 10px 30px rgba(108,99,255,.28);
+        }
+
+        .header-nav .support-pill:hover {
+            background: linear-gradient(135deg, #766eff, #9568f7);
+        }
+
+        .hero { padding-top: 122px; }
+        .hero-title { letter-spacing: -1.5px; }
+        .hero-paragraph { max-width: 680px; margin-left: auto; margin-right: auto; }
+
+        .top-support-wrap {
+            position: relative;
+            z-index: 5;
+            margin-top: -10px;
+            padding: 0 20px 38px;
+        }
+
+        .top-support-card {
+            max-width: 920px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 28px;
+            padding: 26px 30px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(25,28,56,.96), rgba(42,32,82,.92));
+            border: 1px solid var(--support-border);
+            box-shadow: 0 22px 55px rgba(8,10,30,.28);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .top-support-card h2 {
+            color: #fff;
+            margin: 0 0 8px;
+            font-size: 24px;
+            letter-spacing: -.4px;
+        }
+
+        .top-support-card p {
+            color: rgba(255,255,255,.72);
+            margin: 0;
+            line-height: 1.65;
+            font-size: 15px;
+        }
+
+        .support-email {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 20px;
+            border-radius: 14px;
+            color: #fff !important;
+            text-decoration: none;
+            font-weight: 700;
+            white-space: nowrap;
+            background: linear-gradient(135deg, var(--support-accent), var(--support-accent-2));
+            box-shadow: 0 10px 26px rgba(108,99,255,.24);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .support-email:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(108,99,255,.32);
+        }
+
+        .feature-extended {
+            gap: 48px;
+        }
+
+        .feature-extended-body {
+            max-width: 520px;
+        }
+
+        .feature-extended-body h3 {
+            letter-spacing: -.35px;
+        }
+
+        .feature-extended-body p {
+            line-height: 1.7;
+        }
+
+        .device-mockup { max-width: 100%; height: auto; }
+        img { max-width: 100%; }
+
+        .site-footer-bottom { padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+
+        @media (max-width: 900px) {
+            .site-header { padding: 14px 0; }
+            .hero { padding-top: 112px; }
+            .header-nav a:not(.support-pill) { display: none; }
+            .top-support-card { grid-template-columns: 1fr; gap: 18px; }
+            .support-email { width: 100%; }
+            .feature-extended { gap: 30px; }
+        }
+
+         @media (max-width: 640px) {
+            .site-header-inner { gap: 12px; }
+            .header-logo-image { max-width: 138px; height: auto; }
+            .header-nav .support-pill { padding: 11px 14px; font-size: 14px; }
+            .hero { padding-top: 98px; }
+            .hero-title { font-size: clamp(34px, 11vw, 48px); line-height: 1.08; letter-spacing: -1px; }
+            .hero-paragraph { font-size: 16px; line-height: 1.65; padding: 0 6px; }
+            .top-support-wrap { padding: 0 14px 28px; }
+            .top-support-card { padding: 22px 20px; border-radius: 20px; }
+            .top-support-card h2 { font-size: 21px; }
+            .top-support-card p { font-size: 14px; }
+            .button-wide-mobile { width: 100%; }
+            .features-extended.section { padding-top: 24px; }
+            .feature-extended { margin-bottom: 54px; }
+            .feature-extended-body h3 { font-size: 24px; }
+            .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 18px; }
+            .footer-social-links { justify-content: center; }
+            .footer-copyright { text-align: center; width: 100%; }
+        }
+
+        /* Apple TV / Android CTA */
+        .site-footer-top .cta {
+            border-radius: 30px 30px 0 0;
+            overflow: hidden;
+        }
+
+        .site-footer-top .cta-header .cta-cta {
+            display: inline-block;
+            margin: 10px 5px;
+        }
+
+        .site-footer-top .cta-header .button {
+            border-radius: 25px;
+        }
+
+        /* Mobile: stack buttons */
+        @media (max-width: 600px) {
+            .site-footer-top .cta-header .cta-cta {
+                display: block;
+                margin: 10px auto;
+            }
+
+            .site-footer-top .cta-header .button {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+
+
 </head>
 <body class="is-boxed has-animations">
     
@@ -32,11 +240,15 @@
                 <div class="site-header-inner">
                     <div class="brand header-brand">
                         <h1 class="m-0">
-                            <a href="#">
-								<img class="header-logo-image" src="dist/images/logo.svg" alt="Logo">
+                            <a href="#" aria-label="Motivate Apps home">
+                                <img class="header-logo-image" src="dist/images/logo.svg" alt="Motivate Apps">
                             </a>
                         </h1>
                     </div>
+                    <nav class="header-nav" aria-label="Primary navigation">
+                        <a href="#apps">Apps</a>
+                        <a class="support-pill" href="#support">Contact Us</a>
+                    </nav>
                 </div>
             </div>
         </header>
@@ -50,8 +262,8 @@
                 <div class="container-sm">
                     <div class="hero-inner">
 						<div class="hero-copy">
-	                        <h1 class="hero-title mt-0">Our Best iPhone Apps</h1>
-	                        <p class="hero-paragraph">Choose from large variety of Apps for Daily Inspiration,Widgets and much more.</p>
+	                        <h1 class="hero-title mt-0">Apps designed to make everyday life better</h1>
+	                        <p class="hero-paragraph">Discover thoughtful apps for productivity, widgets, inspiration, utilities, and more.</p>
 	                        <div class="hero-cta">
 								<a class="button button-primary button-wide-mobile" href="https://apps.apple.com/us/developer/amit-verma/id1219761009">All Our Apps</a>
                                 
@@ -70,7 +282,17 @@
                 </div>
             </section>
 
-			<section class="features-extended section">
+            <section class="top-support-wrap" id="support" aria-labelledby="support-title">
+                <div class="top-support-card">
+                    <div>
+                        <h2 id="support-title">Need help with one of our apps?</h2>
+                        <p>For app support, technical questions, purchase help, restore issues, or feedback, contact our official support team. Please include the app name and a short description so we can help you faster.</p>
+                    </div>
+                    <a class="support-email" href="mailto:support@motivateapps.com" aria-label="Contact Motivate Apps Support">Contact Support</a>
+                </div>
+            </section>
+
+			<section class="features-extended section" id="apps">
                 <div class="features-extended-inner section-inner">
 					<div class="features-extended-wrap">
 						<div class="container">
@@ -390,20 +612,42 @@
 			<div class="footer-particles-container">
 				<canvas id="footer-particles"></canvas>
 			</div>
-			<div class="site-footer-top">
-				<section class="cta section text-light">
-					<div class="container-sm">
-						<div class="cta-inner section-inner">
-							<div class="cta-header text-center">
-								<h2 class="section-title mt-0">We are also available on Apple Tv, MacOS.</h2>
-								<p class="section-paragraph">Enjoy all our premium apps on Apple tv and MacOS for free.</p>
-								<div class="cta-cta">
-									<a class="button button-primary button-wide-mobile" href="https://apps.apple.com/us/developer/amit-verma/id1219761009#see-all/apple-tv-apps">Apple Tv Apps</a>
-								</div>
-							</div>
-						</div>
-					</div>
-			</div>
+            
+            <div class="site-footer-top">
+    <section class="cta section text-light">
+        <div class="container-sm">
+            <div class="cta-inner section-inner">
+                <div class="cta-header text-center">
+
+                    <h2 class="section-title mt-0">
+                        We are also available on Apple Tv, MacOS, Android
+                    </h2>
+
+                    <p class="section-paragraph">
+                        Enjoy all our premium apps on Apple tv, android and MacOS for free.
+                    </p>
+
+                    <div class="cta-cta">
+                        <a class="button button-primary button-wide-mobile"
+                           href="https://apps.apple.com/us/developer/amit-verma/id1219761009#see-all/apple-tv-apps">
+                            Apple Apps
+                        </a>
+                    </div>
+
+                    <div class="cta-cta">
+                        <a class="button button-primary button-wide-mobile"
+                           href="https://play.google.com/store/apps/developer?id=Amit+verma">
+                            Android Apps
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+			
 			<div class="site-footer-bottom">
 				<div class="container">
 					<div class="site-footer-inner">
@@ -414,7 +658,7 @@
 						</div>
 						<ul class="footer-links list-reset">
 							<li>
-								<a href="mailto:support@motivateapps.com">Contact Us</a>
+								<a href="mailto:support@motivateapps.com">Support &amp; Contact</a>
 							</li>
                             <li>
 								<a href="https://vermaamit38.github.io/privacy.html">Privacy Policy</a>
@@ -443,7 +687,7 @@
 							</li>
 							
 						</ul>
-						<div class="footer-copyright">&copy;Amit Verma 2016-2025</div>
+						<div class="footer-copyright">&copy; Amit Verma 2016-2026</div>
 					</div>
 				</div>
 			</div>
