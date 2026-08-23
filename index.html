@@ -1,455 +1,342 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="./favicon.ico"/>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  
-        
-        </script>  
-    
-    <title>Motivate Apps</title>
-     <meta name="keywords" content="Motivate,Always,Be,Motivated."/>
-        <meta name="og:locale" property="og:locale" content="en_US"/>
-        <meta name="og:type" property="og:type" content="website"/>
-        <meta name="og:site_name" property="og:site_name" content="Motivate - Daily Motivation"/>
-        <meta name="og:title" property="og:title" content="Motivate - Daily Motivation"/>
-        <meta name="og:description" property="og:description" content="Always Be Motivated."/>
-        <meta name="og:image" property="og:image" content="https://s3-us-west-2.amazonaws.com/skygear-cloud-asset/appsite/d6f36d87-d52e-400c-a27a-d0225db5781e-ItunesArtwork@2x.png"/>
-        <meta name="og:image:type" property="og:image:type" content="image/png"/>
-        <meta name="og:image:width" property="og:image:width" content="1024"/>
-        <meta name="og:image:height" property="og:image:height" content="1024"/>
-    <link href="https://fonts.googleapis.com/css?family=Heebo:400,700|Oxygen:700" rel="stylesheet">
-    <link rel="stylesheet" href="dist/css/style.css">
-    <script src="https://unpkg.com/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
-</head>
-<body class="is-boxed has-animations">
-    
-    <div class="body-wrap boxed-container">
-        <header class="site-header text-light">
-            <div class="container">
-                <div class="site-header-inner">
-                    <div class="brand header-brand">
-                        <h1 class="m-0">
-                            <a href="#">
-								<img class="header-logo-image" src="dist/images/logo.svg" alt="Logo">
-                            </a>
-                        </h1>
-                    </div>
-                </div>
-            </div>
-        </header>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b0b0c"><title>Motivate Apps — Thoughtful apps for everyday life</title><meta name="description" content="Small, focused apps for productivity, widgets and everyday moments — on iPhone and Android."><link rel="icon" href="./favicon.ico">
+<meta name="keywords" content="Motivate,Always,Be,Motivated."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Motivate - Daily Motivation"/>
+<meta property="og:title" content="Motivate - Daily Motivation"/>
+<meta property="og:description" content="Always Be Motivated."/>
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/skygear-cloud-asset/appsite/d6f36d87-d52e-400c-a27a-d0225db5781e-ItunesArtwork@2x.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dist/css/premium.css">
+</head><body>
 
-        <main>
-            <section class="hero text-center text-light">
-				<div class="hero-bg"></div>
-				<div class="hero-particles-container">
-					<canvas id="hero-particles"></canvas>
-				</div>
-                <div class="container-sm">
-                    <div class="hero-inner">
-						<div class="hero-copy">
-	                        <h1 class="hero-title mt-0">Our Best iPhone Apps</h1>
-	                        <p class="hero-paragraph">Choose from large variety of Apps for Daily Inspiration,Widgets and much more.</p>
-	                        <div class="hero-cta">
-								<a class="button button-primary button-wide-mobile" href="https://apps.apple.com/us/developer/amit-verma/id1219761009">All Our Apps</a>
-                                
-							</div>
-						</div>
-                        <div class="mockup-container">
-							<div class="mockup-bg">
-								<img src="dist/images/iphone-hero-bg.svg" alt="iPhone illustration">
-							</div>
-                            <a href="https://apps.apple.com/us/app/sticky-widget-sticky-notes/id1541547937">
-							<img class="device-mockup" src="dist/images/iphone-feature-04.png" alt="iPhone Hero" loading="lazy">
-                            </a>
-                            
-						</div>
-                    </div>
-                </div>
-            </section>
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3.2c1.6 0 3.1.7 4.1 1.9.1.1 0 .3-.1.3-1.3.6-2.2 1.9-2.2 3.4 0 1.8 1.2 3.2 2.8 3.7.1 0 .2.2.1.3-.7 2.2-2.5 5.8-4.4 5.8-.9 0-1.5-.6-2.5-.6s-1.6.6-2.5.6c-1.7 0-3.9-3.7-4.5-6.1-.6-2.5.4-5.6 2.5-6.7 1-.5 2.1-.5 3-.1.7.3 1.2.3 1.9 0 .5-.2 1.2-.4 1.8-.4l.1-.3c-.8-.9-.9-2.1-.5-3.2C11.9 1.9 12 3.2 12 3.2z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="#fff" d="M8.4 4.2c-.3.3-.4.7-.4 1.2v13.2c0 .5.1.9.4 1.2l.1.1 7.4-7.4v-.2L8.5 4.1l-.1.1z"/><path fill="#00d2ff" d="M18.3 11.2l-2.4-2.4-7.4 7.4v.2l7.4 7.4 2.4-2.4c.9-.5.9-1.4 0-1.9l-4.3-2.5 4.3-2.5c.9-.5.9-1.4 0-1.9-.4-.2-.6-.3-.4-.4z"/></symbol>
+</svg>
 
-			<section class="features-extended section">
-                <div class="features-extended-inner section-inner">
-					<div class="features-extended-wrap">
-						<div class="container">
-							<div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-01.svg" alt="iPhone Feature 01 illustration">
-									</div>
-									<img class="device-mockup is-revealing" src="dist/images/iphone-feature-01.png" alt="iPhone Feature 01" loading="lazy" >
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Motivate - Daily Motivation</h3>
-									<p class="m-0">Start your day with Motivate Widgets, Whether you are happy or worried , Motivation will help you enhance your mood. Custom Positive Reminders will guide and inspire you for any occasion!. 
-                                    </p><br> 
-                                      
-                                   
-                                    <a  id="appleLink" href="https://itunes.apple.com/us/app/motivate/id1269495142?ls=1&amp;mt=8"><img  src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            
-                            
-                              <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-03.svg" alt="iPhone Feature 03 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a15" src="dist/images/iphone-feature-17.png" alt="iPhone Feature 03" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">To Do List Widget - Simple</h3>
-									<p class="m-0"> Your simple widget for unlimited todo list on home screen and your apple watch.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/to-do-list-widget-simple/id1585508533"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-04.svg" alt="iPhone Feature 04 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a16" src="dist/images/iphone-feature-18.png" alt="iPhone Feature 04" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Countdown widget : Day Counter</h3>
-									<p class="m-0">Just one step to setup nice aesthetic countdown widget for your home Screen. Best Widget for iOS 15 .</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/countdown-widget-day-counter/id1568911092#?platform=iphone"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-03.svg" alt="iPhone Feature 03 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a15" src="dist/images/iphone-feature-21.png" alt="iPhone Feature 03" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Tally Counter Widget</h3>
-									<p class="m-0"> Track and conquer your bad habits with Tally Counter, LockScreen Widget, Watch App.</p><br>
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/tally-counter-widget-tracker/id6480589201"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            
-                             <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-04.svg" alt="iPhone Feature 04 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a16" src="dist/images/iphone-feature-16.png" alt="iPhone Feature 04" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Analog Clock - Desk Widget</h3>
-									<p class="m-0">Analog Clock is beautiful desk clock with over 100+ watch faces and widget style.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/analog-clock-desk-widget/id1567718618"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-03.svg" alt="iPhone Feature 03 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a3" src="dist/images/iphone-feature-20.png" alt="iPhone Feature 03" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Loveit Noteit Widget Drawings </h3>
-									<p class="m-0">Draw anything you want and showcase it on your Home Screen. Just Tap on widget to start editing again.You can also use it as sticky notes with Clear Background and Solid Color.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/loveit-noteit-widget-drawings/id1625662636"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            
-							<div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-02.svg" alt="iPhone Feature 02 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a2" src="dist/images/iphone-feature-02.png" alt="iPhone Feature 02" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Photo Widget - Picture Collage</h3>
-									<p class="m-0">Decorate your Home Screen with Photo Widget Best for getting Aesthetic Look to your Home Screen. It's a free app.Look all your Favourite memories at glance. </p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/photo-widget-picture-collage/id1548449981"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-							<div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-03.svg" alt="iPhone Feature 03 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a3" src="dist/images/iphone-feature-03.png" alt="iPhone Feature 03" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Call Widget : Speed Dial Pro</h3>
-									<p class="m-0">Call Widget is best iOS 16 widgets for speed- dialling on your home screen.Just choose your favourite contacts, assign a photo,and place on your screen for beautiful and useful widgets.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/call-widget-speed-dial-pro/id1545582448"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-							<div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-04.svg" alt="iPhone Feature 04 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a4" src="dist/images/iphone-feature-04.png" alt="iPhone Feature 04" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Sticky Widget - Sticky Notes</h3>
-									<p class="m-0">Now you can add unlimited no of sticky widgets in different size to your Home Screen.It's so convenience that your notes will appear the moment you pick up your phone.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/sticky-widget-sticky-notes/id1541547937"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-03.svg" alt="iPhone Feature 03 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a5" src="dist/images/iphone-feature-05.png" alt="iPhone Feature 03" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Color Widget Cool: Custom Pro</h3>
-									<p class="m-0">Cool Color Widget will make your phone unique and looks stylish. Design home Screen directly through Cool Color Widget. With lots of customisation and presets available.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/color-widget-cool-custom-pro/id1536946544"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-04.svg" alt="iPhone Feature 04 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a6" src="dist/images/iphone-feature-06.png" alt="iPhone Feature 04" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Flip Clock - Digital Clock</h3>
-									<p class="m-0">Elegant and Beautiful Flip Clock now not only in black and white but also with beautiful themes and much more. Amazing Alarm clock and widgets</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/flip-clock-digital-clock/id1479450824"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-03.svg" alt="iPhone Feature 03 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a7" src="dist/images/iphone-feature-07.png" alt="iPhone Feature 03" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">CountDown Widget - Pro wedges</h3>
-									<p class="m-0">CountDown Habit Tracker is a free and easy App . It helps you create and maintain good habits, allowing you to achieve your long-term goals. Easy for tracking moments and your daily habits.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/countdown-widget-pro-wedges/id1492526742"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-04.svg" alt="iPhone Feature 04 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a8" src="dist/images/iphone-feature-08.png" alt="iPhone Feature 04" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Fonts Art : Cool Font Keyboard </h3>
-									<p class="m-0">Tired of the default boring font? It’s time for a change. With Fonts App Standout on social media and all texting Apps, make the most creative profile and feed on Instagram, Tiktok, Snapchat and all other social media accounts.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/fonts-art-cool-font-keyboard/id1533466663"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-03.svg" alt="iPhone Feature 03 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a9" src="dist/images/iphone-feature-09.png" alt="iPhone Feature 03" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Daily Facts : Random Facts</h3>
-									<p class="m-0">Daily Facts is a Free App and contains thousands of new Random Facts curated in categories. Increase your knowledge with new Facts Daily.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/daily-facts-random-facts/id1426722415"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-04.svg" alt="iPhone Feature 04 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a10" src="dist/images/iphone-feature-10.png" alt="iPhone Feature 04" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Tic Tac Toe • 3-in-a-row</h3>
-									<p class="m-0">Tic Tac Toe is free classic puzzle game also known as "noughts and crosses or sometimes X and O". Play with AI or friends on iPhone, watch or widgets.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/tic-tac-toe-3-in-a-row/id1233975203"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-03.svg" alt="iPhone Feature 03 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a11" src="dist/images/iphone-feature-11.png" alt="iPhone Feature 03" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Fonts - Social Networks</h3>
-									<p class="m-0">With Fonts App Shine on social media and all texting Apps, make the most creative bios, highlights for your Instagram and all other social media accounts.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/fonts-social-networks/id1502945652"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-04.svg" alt="iPhone Feature 04 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a12" src="dist/images/iphone-feature-12.png" alt="iPhone Feature 04" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Bills Splitter Widget - budget</h3>
-									<p class="m-0">The quickest, easiest way to split the check at a restaurant use Bills Splitter. Its more convenient to splits big bills and in more detail manner with our advance bills sections.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/bills-splitter-widget-budget/id1360791872"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-03.svg" alt="iPhone Feature 03 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a13" src="dist/images/iphone-feature-13.png" alt="iPhone Feature 03" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Big Clock - Pro Time Widgets</h3>
-									<p class="m-0">Turn Your iPhone into Big Clock. Simple and beautiful Digital clock designed for Table Stand.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/big-clock-pro-time-widgets/id1495547377"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-04.svg" alt="iPhone Feature 04 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a14" src="dist/images/iphone-feature-15.png" alt="iPhone Feature 04" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Calendar Widget - Date Widgets</h3>
-									<p class="m-0">Calendar Widget is the app you need for customising your home screen with beautiful calendar.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/calendar-widget-date-widgets/id1550340128"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-03.svg" alt="iPhone Feature 03 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a15" src="dist/images/iphone-feature-14.png" alt="iPhone Feature 03" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">FlashLight - TorchLight Widget</h3>
-									<p class="m-0">A beautifully elegant designed torch that is the BRIGHTEST, FASTEST, simplest way to light up your room.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/flashlight-torchlight-widget/id1562397724"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                            
-                            <div class="feature-extended">
-								<div class="feature-extended-image">
-									<div class="mockup-bg">
-										<img src="dist/images/iphone-feature-bg-04.svg" alt="iPhone Feature 04 illustration">
-									</div>
-									<img class="device-mockup is-revealing" id = "a14" src="dist/images/iphone-feature-19.png" alt="iPhone Feature 04" loading="lazy">
-								</div>
-								<div class="feature-extended-body is-revealing">
-									<h3 class="mt-0 mb-16">Birthday Countdown Widget pro</h3>
-									<p class="m-0">Quick, Simple Birthday Widget Reminder app on your Home Screen.</p><br> 
-                                    <a class="app-link" id="appleLink" href="https://apps.apple.com/us/app/birthday-countdown-widget-pro/id1594824793"><img class="app-icon" src="dist/images/badgeappstore.svg"/>
-                                      </a>
-								</div>
-							</div>
-                             
-            
-						</div>
-					</div>
-                </div>
-            </section>
-        </main>
 
-		<footer class="site-footer">
-			<div class="footer-particles-container">
-				<canvas id="footer-particles"></canvas>
-			</div>
-			<div class="site-footer-top">
-				<section class="cta section text-light">
-					<div class="container-sm">
-						<div class="cta-inner section-inner">
-							<div class="cta-header text-center">
-								<h2 class="section-title mt-0">We are also available on Apple Tv, MacOS.</h2>
-								<p class="section-paragraph">Enjoy all our premium apps on Apple tv and MacOS for free.</p>
-								<div class="cta-cta">
-									<a class="button button-primary button-wide-mobile" href="https://apps.apple.com/us/developer/amit-verma/id1219761009#see-all/apple-tv-apps">Apple Tv Apps</a>
-								</div>
-							</div>
-						</div>
-					</div>
-			</div>
-			<div class="site-footer-bottom">
-				<div class="container">
-					<div class="site-footer-inner">
-						<div class="brand footer-brand">
-							<a href="#">
-								<img src="dist/images/logo.svg" alt="Venus logo">
-							</a>
-						</div>
-						<ul class="footer-links list-reset">
-							<li>
-								<a href="mailto:support@motivateapps.com">Contact Us</a>
-							</li>
-                            <li>
-								<a href="https://vermaamit38.github.io/privacy.html">Privacy Policy</a>
-							</li>
-                            <li>
-								<a href="https://vermaamit38.github.io/terms.html">Term And Conditions.</a>
-							</li>
-							
-						</ul>
-						<ul class="footer-social-links list-reset">
-							<li>
-								<a href="https://www.facebook.com/Motivate.AppStore">
-									<span class="screen-reader-text">Facebook</span>
-									<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-										<path d="M6.023 16L6 9H3V6h3V4c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V6H13l-1 3H9.28v7H6.023z" fill="#FFF"/>
-									</svg>
-								</a>
-							</li>
-							<li>
-								<a href="https://www.instagram.com/motivationapp_/">
-									<span class="screen-reader-text">Instagram</span>
-									<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-										<path d="M16 3c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4C.7 7.7 1.8 9 3.3 9.3c-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4C15 4.3 15.6 3.7 16 3z" fill="#FFF"/>
-									</svg>
-								</a>
-							</li>
-							
-						</ul>
-						<div class="footer-copyright">&copy;Amit Verma 2016-2025</div>
-					</div>
-				</div>
-			</div>
-        </footer>
+<nav class="nav"><div class="nav-inner"><a class="brand" href="#top"><span class="dot"></span>Motivate Apps</a><div class="nav-links"><a href="#apps">Apps</a><a href="#android">Android</a><a href="#ecosystem">Platforms</a><a href="#support">Support</a><a class="contact" href="mailto:support@motivateapps.com">Contact Us</a></div></div></nav>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Motivate Apps</p>
+    <h1>Small apps.<br>Meaningful moments.</h1>
+    <p class="lead">Twenty-plus thoughtfully designed experiences for productivity, creativity and everyday life — on iPhone and Android.</p>
+    <div class="badge-row">
+      <a class="store-badge apple" href="https://apps.apple.com/us/developer/amit-verma/id1219761009">
+        <span class="mark"><svg><use href="#i-apple"/></svg></span>
+        <span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span>
+      </a>
+      <a class="store-badge play" href="https://play.google.com/store/apps/developer?id=Amit+verma">
+        <span class="mark"><svg><use href="#i-play"/></svg></span>
+        <span class="txt"><span class="l1">Get it on</span><span class="l2">Google Play</span></span>
+      </a>
     </div>
+  </div>
+  <div class="stage">
+    <div class="device-stage">
+      <div class="device-glow" aria-hidden="true"></div>
+      <a class="device-tap reveal visible" href="https://itunes.apple.com/us/app/motivate/id1269495142?ls=1&amp;mt=8" aria-label="Open Motivate - Daily Motivation on the App Store">
+        <img src="dist/images/iphone-feature-04.png" alt="Motivate - Daily Motivation running on iPhone" loading="eager">
+        <span class="tap-hint">Tap to view on the App Store ↗</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-    <script src="dist/js/main.min.js"></script>
-</body>
-</html>
+<section class="statement reveal"><h2>Made to feel simple from the first tap. <span>Useful enough to become part of your day.</span></h2></section>
+
+<section class="featured" id="apps">
+  <div class="section-head reveal"><p class="eyebrow">Featured</p><h2>Apps worth discovering.</h2><p>Six of our most-loved experiences, each with its own personality. Tap any card to open it on the App Store.</p></div>
+  <div class="app-grid">
+
+    <article class="app-card reveal" style="--stage-a:#fff1e8;--stage-b:#ffe0cf;--stage-accent:#e8703a;--stage-glow:rgba(255,138,76,.35)">
+      <a class="card-tap" href="https://itunes.apple.com/us/app/motivate/id1269495142?ls=1&amp;mt=8" aria-label="View Motivate - Daily Motivation on the App Store" aria-hidden="true" tabindex="-1"></a>
+      <div class="app-visual"><img src="dist/images/iphone-feature-01.png" alt="Motivate - Daily Motivation preview" loading="lazy"></div>
+      <div class="app-copy"><p class="kicker">Daily inspiration</p><h3>Motivate — Daily Motivation</h3><p>Start your day with beautiful motivational widgets and custom reminders that guide and inspire you, whatever the moment calls for.</p>
+        <a class="store-badge apple small" href="https://itunes.apple.com/us/app/motivate/id1269495142?ls=1&amp;mt=8"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></a>
+      </div>
+    </article>
+
+    <article class="app-card reveal" style="--stage-a:#eaf3ff;--stage-b:#d7e9ff;--stage-accent:#0071e3;--stage-glow:rgba(0,113,227,.3)">
+      <a class="card-tap" href="https://apps.apple.com/us/app/to-do-list-widget-simple/id1585508533" aria-label="View To Do List Widget - Simple on the App Store" aria-hidden="true" tabindex="-1"></a>
+      <div class="app-visual"><img src="dist/images/iphone-feature-17.png" alt="To Do List Widget - Simple preview" loading="lazy"></div>
+      <div class="app-copy"><p class="kicker">Productivity</p><h3>To Do List Widget — Simple</h3><p>An unlimited to-do list, right on your Home Screen and your Apple Watch — no clutter, just what you need to get done today.</p>
+        <a class="store-badge apple small" href="https://apps.apple.com/us/app/to-do-list-widget-simple/id1585508533"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></a>
+      </div>
+    </article>
+
+    <article class="app-card reveal" style="--stage-a:#f2edff;--stage-b:#e3d6ff;--stage-accent:#7b5cff;--stage-glow:rgba(123,92,255,.32)">
+      <a class="card-tap" href="https://apps.apple.com/us/app/countdown-widget-day-counter/id1568911092#?platform=iphone" aria-label="View Countdown widget - Day Counter on the App Store" aria-hidden="true" tabindex="-1"></a>
+      <div class="app-visual"><img src="dist/images/iphone-feature-18.png" alt="Countdown widget : Day Counter preview" loading="lazy"></div>
+      <div class="app-copy"><p class="kicker">Countdown</p><h3>Countdown Widget — Day Counter</h3><p>One step to a beautiful, aesthetic countdown widget for your Home Screen — for the days that matter most.</p>
+        <a class="store-badge apple small" href="https://apps.apple.com/us/app/countdown-widget-day-counter/id1568911092#?platform=iphone"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></a>
+      </div>
+    </article>
+
+    <article class="app-card reveal" style="--stage-a:#e8fbf3;--stage-b:#d1f5e4;--stage-accent:#0f9d58;--stage-glow:rgba(15,157,88,.3)">
+      <a class="card-tap" href="https://apps.apple.com/us/app/tally-counter-widget-tracker/id6480589201" aria-label="View Tally Counter Widget on the App Store" aria-hidden="true" tabindex="-1"></a>
+      <div class="app-visual"><img src="dist/images/iphone-feature-21.png" alt="Tally Counter Widget preview" loading="lazy"></div>
+      <div class="app-copy"><p class="kicker">Habits</p><h3>Tally Counter Widget</h3><p>Track and conquer your habits with a Lock Screen widget, Home Screen widget and Apple Watch app, all in sync.</p>
+        <a class="store-badge apple small" href="https://apps.apple.com/us/app/tally-counter-widget-tracker/id6480589201"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></a>
+      </div>
+    </article>
+
+    <article class="app-card reveal" style="--stage-a:#fff8e6;--stage-b:#ffedbf;--stage-accent:#c98a00;--stage-glow:rgba(245,166,35,.32)">
+      <a class="card-tap" href="https://apps.apple.com/us/app/analog-clock-desk-widget/id1567718618" aria-label="View Analog Clock - Desk Widget on the App Store" aria-hidden="true" tabindex="-1"></a>
+      <div class="app-visual"><img src="dist/images/iphone-feature-16.png" alt="Analog Clock - Desk Widget preview" loading="lazy"></div>
+      <div class="app-copy"><p class="kicker">Clocks</p><h3>Analog Clock — Desk Widget</h3><p>A beautiful desk clock with over 100 watch faces and widget styles, so your nightstand always looks the part.</p>
+        <a class="store-badge apple small" href="https://apps.apple.com/us/app/analog-clock-desk-widget/id1567718618"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></a>
+      </div>
+    </article>
+
+    <article class="app-card reveal" style="--stage-a:#ffeef7;--stage-b:#ffd9ec;--stage-accent:#e8408f;--stage-glow:rgba(255,94,168,.32)">
+      <a class="card-tap" href="https://apps.apple.com/us/app/loveit-noteit-widget-drawings/id1625662636" aria-label="View Loveit Noteit Widget Drawings on the App Store" aria-hidden="true" tabindex="-1"></a>
+      <div class="app-visual"><img src="dist/images/iphone-feature-20.png" alt="Loveit Noteit Widget Drawings preview" loading="lazy"></div>
+      <div class="app-copy"><p class="kicker">Creativity</p><h3>Loveit Noteit — Widget Drawings</h3><p>Draw anything and showcase it on your Home Screen, or use it as a sticky note with a clear or solid background.</p>
+        <a class="store-badge apple small" href="https://apps.apple.com/us/app/loveit-noteit-widget-drawings/id1625662636"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="ecosystem" id="ecosystem">
+  <p class="eyebrow" style="color:#9a9aa1">Across your devices</p>
+  <h2>Designed to feel at home everywhere.</h2>
+  <p>From iPhone and Apple Watch to Apple TV, Mac and Android, our apps are built to feel native to the device you're holding.</p>
+  <div class="platform-row">
+    <span class="platform-chip">iPhone</span>
+    <span class="platform-chip">Apple Watch</span>
+    <span class="platform-chip">Android</span>
+  </div>
+  <div class="device-showcase">
+
+    <a class="device-tile" href="mac.html">
+      <div class="device-art">
+        <img class="orbit-icon o1" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f2/6b/4a/f26b4aa9-7dd3-8554-e431-cdd7e2e7c3f4/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png" alt="">
+        <img class="orbit-icon o2" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/76/35/39/763539ad-7adf-e346-f81e-0eb5e6375eb4/AppIcon-0-0-85-220-0-5-0-2x-P3.png/512x512bb.png" alt="">
+        <div class="laptop">
+          <div class="laptop-screen"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/04/7a/7e/047a7e9b-a56b-1ae4-2ad8-29f34f13d049/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.jpg" alt=""></div>
+          <div class="laptop-hinge"></div>
+          <div class="laptop-base"></div>
+        </div>
+      </div>
+      <div class="device-label"><p class="p-tag">On Mac</p><h3>3 apps for macOS</h3><span class="tile-cta">Tap to explore →</span></div>
+    </a>
+
+    <a class="device-tile" href="appletv.html">
+      <div class="device-art">
+        <img class="orbit-icon o1" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c7/4f/de/c74fde94-398a-0290-b2b4-704d1f12c9ab/App_Icon-marketing.lsr/512x512bb.jpg" alt="">
+        <img class="orbit-icon o2" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0f/2b/5d/0f2b5d67-4e43-b690-f33c-56e13b282b7e/App_Icon-marketing.lsr/512x512bb.jpg" alt="">
+        <img class="orbit-icon o3" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ef/a6/c6/efa6c62e-766f-48a7-5103-ba552bffe539/App_Icon-marketing.lsr/512x512bb.jpg" alt="">
+        <img class="orbit-icon o4" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/90/7b/9f/907b9ff9-c5bb-e718-42e2-4942e39b6c3b/App_Icon-marketing.lsr/512x512bb.jpg" alt="">
+        <div class="appletv-wrap">
+          <div class="appletv-puck"></div>
+          <div class="appletv-shadow"></div>
+        </div>
+      </div>
+      <div class="device-label"><p class="p-tag">On Apple TV</p><h3>6 apps for tvOS</h3><span class="tile-cta">Tap to explore →</span></div>
+    </a>
+
+    <a class="device-tile" href="visionpro.html">
+      <div class="device-art">
+        <img class="orbit-icon o1" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a3/a2/1a/a3a21ae9-97a8-017f-430f-d72131c5823a/AppIcon.lsr/512x512bb.jpg" alt="">
+        <img class="orbit-icon o2" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/50/d9/d1/50d9d1f9-fc53-b3ca-776b-baf825a3aa06/AppIcon.lsr/512x512bb.jpg" alt="">
+        <img class="orbit-icon o5" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e8/6a/e8/e86ae817-ef91-c8f1-a678-12c76dd08902/AppIcon.lsr/512x512bb.jpg" alt="">
+        <div class="visor"></div>
+        <div class="visor-strap"></div>
+      </div>
+      <div class="device-label" style="margin-top:6px"><p class="p-tag">On Apple Vision Pro</p><h3>4 spatial apps</h3><span class="tile-cta">Tap to explore →</span></div>
+    </a>
+
+    <a class="device-tile" href="androidtv.html">
+      <div class="device-art">
+        <div class="sonytv-set">
+          <div class="sonytv-screen"></div>
+          <div class="sonytv-foot"></div><div class="sonytv-base"></div>
+        </div>
+        <span class="tv-count-pill">11 apps</span>
+      </div>
+      <div class="device-label"><p class="p-tag">On Android TV</p><h3>11 apps for the big screen</h3><span class="tile-cta">Tap to explore →</span></div>
+    </a>
+
+  </div>
+</section>
+
+<section class="android-showcase" id="android">
+  <div class="section-head reveal">
+    <span class="pill-eyebrow">On Google Play</span>
+    <h2>Now on Android, too.</h2>
+    <p>The same simple, focused apps — rebuilt for Android. Tap any card to open it on Google Play.</p>
+  </div>
+  <div class="android-grid">
+    <a class="android-card reveal" href="https://play.google.com/store/apps/details?id=com.motivateapps.bigclock" target="_blank" rel="noopener" aria-label="Open StandBy - Big Desk Clock on Google Play">
+      <img class="android-icon" src="https://play-lh.googleusercontent.com/sl_4SXgnVK-ZgX51fxiJrU_xdcaI4SSdSXFgy55TJBF5ssrrrgM4JCHRMYVWGmzy8-qmeObXPUy7Ru1c_2wicR4=s128" alt="" loading="lazy">
+      <h3>StandBy – Big Desk Clock</h3>
+      <span class="android-rating">★ 4.4</span>
+      <p>Turn any old phone into a beautiful bedside display.</p>
+      <span class="store-badge play small"><span class="mark"><svg><use href="#i-play"/></svg></span><span class="txt"><span class="l1">Get it on</span><span class="l2">Google Play</span></span></span>
+    </a>
+    <a class="android-card reveal" href="https://play.google.com/store/apps/details?id=com.motivateapps.flipclock" target="_blank" rel="noopener" aria-label="Open Flip Clock - Focus Clock on Google Play">
+      <img class="android-icon" src="https://play-lh.googleusercontent.com/5WdCmZfbfb0pSZfyD3e899TnEOT0Kd6hoyRgxT4jnys5AC5HDEdMhMN23gzmOpZDC7l_Boum3KJ26bfwdLiC=s128" alt="" loading="lazy">
+      <h3>Flip Clock – Focus Clock</h3>
+      <span class="android-rating">★ 3.7</span>
+      <p>A distraction-free flip clock built for deep work.</p>
+      <span class="store-badge play small"><span class="mark"><svg><use href="#i-play"/></svg></span><span class="txt"><span class="l1">Get it on</span><span class="l2">Google Play</span></span></span>
+    </a>
+    <a class="android-card reveal" href="https://play.google.com/store/apps/details?id=com.motivateapps.vibevibration" target="_blank" rel="noopener" aria-label="Open Vibrator Pro on Google Play">
+      <img class="android-icon" src="https://play-lh.googleusercontent.com/q6hIhbgExMlkP4r36hT757-GTcSDhh3Wt3Nv3QaE5tE8wGapLWd8iiWVbcThGjlZ1epY_5O3iwFyWUxsEdhfmQ=s128" alt="" loading="lazy">
+      <h3>Vibrator Pro – Strong Vibration</h3>
+      <span class="android-rating">★ 3.8</span>
+      <p>One tap, maximum vibration for testing and alerts.</p>
+      <span class="store-badge play small"><span class="mark"><svg><use href="#i-play"/></svg></span><span class="txt"><span class="l1">Get it on</span><span class="l2">Google Play</span></span></span>
+    </a>
+    <a class="android-card reveal" href="https://play.google.com/store/apps/details?id=com.motivateapps.puremirror" target="_blank" rel="noopener" aria-label="Open PureMirror on Google Play">
+      <img class="android-icon" src="https://play-lh.googleusercontent.com/y0gpLtnjWN5DYKRoYLU1DfClCZg_YqXxPueVmmKgOW_zu0tQkape-jI5ov5eeWS1V56CpM35NfaLEMXht_KMatM=s128" alt="" loading="lazy">
+      <h3>PureMirror – Makeup Mirror</h3>
+      <span class="android-rating is-new">New</span>
+      <p>Your front camera, reimagined as a bright vanity mirror.</p>
+      <span class="store-badge play small"><span class="mark"><svg><use href="#i-play"/></svg></span><span class="txt"><span class="l1">Get it on</span><span class="l2">Google Play</span></span></span>
+    </a>
+    <a class="android-card reveal" href="https://play.google.com/store/apps/details?id=com.motivateapps.fliptimerflow" target="_blank" rel="noopener" aria-label="Open Flip Timer on Google Play">
+      <img class="android-icon" src="https://play-lh.googleusercontent.com/HuIWQtWaen_MBsrASRmW9e_9Myz9rKFgZVxSq5_vA40VfXL56isCZklofMqLKj9AWzzA3Hc-oq6RpNoIQls58g=s128" alt="" loading="lazy">
+      <h3>Flip Timer – Countdown &amp; Up</h3>
+      <span class="android-rating is-new">New</span>
+      <p>A no-frills countdown and stopwatch with a satisfying flip.</p>
+      <span class="store-badge play small"><span class="mark"><svg><use href="#i-play"/></svg></span><span class="txt"><span class="l1">Get it on</span><span class="l2">Google Play</span></span></span>
+    </a>
+    <a class="android-card reveal" href="https://play.google.com/store/apps/details?id=com.motivateapps.watereject" target="_blank" rel="noopener" aria-label="Open Water Eject on Google Play">
+      <img class="android-icon" src="https://play-lh.googleusercontent.com/4bvnoCXsgu94WalNLRQSH2ouX6i8kpksHK2mcWI_kMA83DSIZUekF05gtlML9ow69ANmxhp36CH4-EQhOXnw=s128" alt="" loading="lazy">
+      <h3>Water Eject – Speaker Cleaner</h3>
+      <span class="android-rating is-new">New</span>
+      <p>Clear water from your speaker with tuned sound pulses.</p>
+      <span class="store-badge play small"><span class="mark"><svg><use href="#i-play"/></svg></span><span class="txt"><span class="l1">Get it on</span><span class="l2">Google Play</span></span></span>
+    </a>
+    <a class="android-card reveal" href="https://play.google.com/store/apps/details?id=com.motivateapps.periodictable" target="_blank" rel="noopener" aria-label="Open Periodic Table on Google Play">
+      <img class="android-icon" src="https://play-lh.googleusercontent.com/ZJh5kFjpCM3r9Ags4x0lMl8BVz2M7L3jMDh4givIPL6i3bEhKf7lsUJ6HAsfCshlN_de4wbtf1WOmfKfIGTZtg=s128" alt="" loading="lazy">
+      <h3>Periodic Table – Elements Quiz</h3>
+      <span class="android-rating is-new">New</span>
+      <p>The full periodic table plus a quiz mode for students.</p>
+      <span class="store-badge play small"><span class="mark"><svg><use href="#i-play"/></svg></span><span class="txt"><span class="l1">Get it on</span><span class="l2">Google Play</span></span></span>
+    </a>
+    <a class="android-card reveal" href="https://play.google.com/store/apps/details?id=com.amit.motivate.calculator" target="_blank" rel="noopener" aria-label="Open Calculator calc on Google Play">
+      <img class="android-icon" src="https://play-lh.googleusercontent.com/K8nHS5_bx_7wj-Eq2Ky44lvAc8nWKUT3MpnHrEY-yFw8_JecTU1rkptN1QnZqv76UeB441DX6DROLNee9i6ewEc=s128" alt="" loading="lazy">
+      <h3>Calculator calc – simple</h3>
+      <span class="android-rating is-new">New</span>
+      <p>A clean, ad-light calculator for everyday math.</p>
+      <span class="store-badge play small"><span class="mark"><svg><use href="#i-play"/></svg></span><span class="txt"><span class="l1">Get it on</span><span class="l2">Google Play</span></span></span>
+    </a>
+  </div>
+  <div class="android-showcase-foot reveal">
+    <a class="store-badge play" href="https://play.google.com/store/apps/developer?id=Amit+verma" target="_blank" rel="noopener"><span class="mark"><svg><use href="#i-play"/></svg></span><span class="txt"><span class="l1">See all apps on</span><span class="l2">Google Play</span></span></a>
+  </div>
+</section>
+
+<section class="carousel-wrap">
+  <div class="carousel-head reveal"><p class="eyebrow">The full lineup</p><h2>Every app, one shelf.</h2><p>iPhone, Android, Mac, Apple TV and Vision Pro — tap any icon to open it.</p></div>
+  <div class="carousel-track-outer">
+    <div class="carousel-track" id="carousel-track"></div>
+  </div>
+</section>
+
+<section class="all-apps">
+  <div class="section-head reveal"><p class="eyebrow">More to explore</p><h2>Find your next favorite.</h2><p>Widgets, clocks, creativity, productivity and more. Tap any app to open it on the App Store.</p></div>
+  <div class="mini-grid">
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/photo-widget-picture-collage/id1548449981"><img src="dist/images/iphone-feature-02.png" alt="" loading="lazy"><div class="mini-copy"><h3>Photo Widget - Picture Collage</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/call-widget-speed-dial-pro/id1545582448"><img src="dist/images/iphone-feature-03.png" alt="" loading="lazy"><div class="mini-copy"><h3>Call Widget : Speed Dial Pro</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/sticky-widget-sticky-notes/id1541547937"><img src="dist/images/iphone-feature-04.png" alt="" loading="lazy"><div class="mini-copy"><h3>Sticky Widget - Sticky Notes</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/color-widget-cool-custom-pro/id1536946544"><img src="dist/images/iphone-feature-05.png" alt="" loading="lazy"><div class="mini-copy"><h3>Color Widget Cool: Custom Pro</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/flip-clock-digital-clock/id1479450824"><img src="dist/images/iphone-feature-06.png" alt="" loading="lazy"><div class="mini-copy"><h3>Flip Clock - Digital Clock</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/countdown-widget-pro-wedges/id1492526742"><img src="dist/images/iphone-feature-07.png" alt="" loading="lazy"><div class="mini-copy"><h3>CountDown Widget - Pro wedges</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/fonts-art-cool-font-keyboard/id1533466663"><img src="dist/images/iphone-feature-08.png" alt="" loading="lazy"><div class="mini-copy"><h3>Fonts Art : Cool Font Keyboard</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/daily-facts-random-facts/id1426722415"><img src="dist/images/iphone-feature-09.png" alt="" loading="lazy"><div class="mini-copy"><h3>Daily Facts : Random Facts</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/tic-tac-toe-3-in-a-row/id1233975203"><img src="dist/images/iphone-feature-10.png" alt="" loading="lazy"><div class="mini-copy"><h3>Tic Tac Toe • 3-in-a-row</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/fonts-social-networks/id1502945652"><img src="dist/images/iphone-feature-11.png" alt="" loading="lazy"><div class="mini-copy"><h3>Fonts - Social Networks</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/bills-splitter-widget-budget/id1360791872"><img src="dist/images/iphone-feature-12.png" alt="" loading="lazy"><div class="mini-copy"><h3>Bills Splitter Widget - budget</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/big-clock-pro-time-widgets/id1495547377"><img src="dist/images/iphone-feature-13.png" alt="" loading="lazy"><div class="mini-copy"><h3>Big Clock - Pro Time Widgets</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/calendar-widget-date-widgets/id1550340128"><img src="dist/images/iphone-feature-15.png" alt="" loading="lazy"><div class="mini-copy"><h3>Calendar Widget - Date Widgets</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/flashlight-torchlight-widget/id1562397724"><img src="dist/images/iphone-feature-14.png" alt="" loading="lazy"><div class="mini-copy"><h3>FlashLight - TorchLight Widget</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+    <a class="mini-card reveal" href="https://apps.apple.com/us/app/birthday-countdown-widget-pro/id1594824793"><img src="dist/images/iphone-feature-19.png" alt="" loading="lazy"><div class="mini-copy"><h3>Birthday Countdown Widget pro</h3><span class="store-badge apple small"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></span></div></a>
+  </div>
+</section>
+
+<section class="support" id="support">
+  <div class="support-card reveal">
+    <div><p class="eyebrow" style="color:#a1a1a6">Official app support</p><h2>Need a hand?</h2><p>Questions about one of our apps, purchases, restoring access, technical issues or feedback? Our support team is here to help. Please include the app name when contacting us.</p></div>
+    <a class="btn" href="mailto:support@motivateapps.com?subject=Motivate%20Apps%20Support">Contact Support</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-badges badge-row" style="justify-content:center">
+      <a class="store-badge apple" href="https://apps.apple.com/us/developer/amit-verma/id1219761009"><span class="mark"><svg><use href="#i-apple"/></svg></span><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></a>
+      <a class="store-badge play" href="https://play.google.com/store/apps/developer?id=Amit+verma"><span class="mark"><svg><use href="#i-play"/></svg></span><span class="txt"><span class="l1">Get it on</span><span class="l2">Google Play</span></span></a>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2016–2026 Motivate Apps. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="mailto:support@motivateapps.com">Support</a>
+        <a href="https://vermaamit38.github.io/privacy.html">Privacy Policy</a>
+        <a href="https://vermaamit38.github.io/terms.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>io.observe(e));</script>
+<script>
+const ALL_APPS=[
+{n:"Motivate — Daily Motivation",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b7/6d/2d/b76d2d8a-30ad-da9a-fb7a-a7d9b0a99008/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",u:"https://itunes.apple.com/us/app/motivate/id1269495142?ls=1&mt=8"},
+{n:"To Do List Widget - Simple",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e1/4b/12/e14b1219-9591-b07b-a5c1-3a1637245117/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/to-do-list-widget-simple/id1585508533"},
+{n:"Countdown Widget - Day Counter",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bb/b6/06/bbb60676-de32-2200-5863-4d0ebf909be0/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/countdown-widget-day-counter/id1568911092"},
+{n:"Tally Counter Widget",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/19/fc/9c/19fc9c38-61b4-9a35-78b5-1a64b8c55059/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/tally-counter-widget-tracker/id6480589201"},
+{n:"Analog Clock - Desk Widget",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2b/10/fd/2b10fd5b-ef09-c231-a396-53960ed2e2f3/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/analog-clock-desk-widget/id1567718618"},
+{n:"Loveit Noteit Widget Drawings",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/69/10/8c/69108c19-60aa-92e6-30ae-493d4c2272e3/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/loveit-noteit-widget-drawings/id1625662636"},
+{n:"Photo Widget - Picture Collage",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/20/1b/b3/201bb35c-a6ce-d9ff-9214-ef8ba334e209/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/photo-widget-picture-collage/id1548449981"},
+{n:"Call Widget : Speed Dial Pro",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/42/41/e9/4241e965-3b5a-e923-0399-53f82c604c5f/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/call-widget-speed-dial-pro/id1545582448"},
+{n:"Sticky Widget - Sticky Notes",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a6/0a/e9/a60ae9f0-ccb4-3b24-7331-75d56c08f604/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/sticky-widget-sticky-notes/id1541547937"},
+{n:"Color Widget Cool: Custom Pro",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/52/a1/44/52a14481-8f36-d57c-810e-2828bfc411db/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/color-widget-cool-custom-pro/id1536946544"},
+{n:"Flip Clock - Digital Clock",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/41/e8/94/41e89441-93ef-6c73-f062-9e8a12d11390/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/flip-clock-digital-clock/id1479450824"},
+{n:"CountDown Widget - Pro Wedges",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/00/16/91/001691ed-c895-7afa-cb07-c0de3d823651/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/countdown-widget-pro-wedges/id1492526742"},
+{n:"Fonts Art : Cool Font Keyboard",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b4/54/85/b45485a1-a6d4-4ab3-ccde-19ab32c2295f/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/fonts-art-cool-font-keyboard/id1533466663"},
+{n:"Daily Facts : Random Facts",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5b/08/72/5b087262-697b-bb47-c669-9ff27feebf22/AppIcon-0-1x_U007emarketing-0-7-0-sRGB-85-220-0.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/daily-facts-random-facts/id1426722415"},
+{n:"Tic Tac Toe • 3-in-a-row",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0d/cf/85/0dcf8517-b490-1586-d65c-03c2a08428e6/AppIcon-1x_U007emarketing-0-7-0-0-sRGB-85-220-0.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/tic-tac-toe-3-in-a-row/id1233975203"},
+{n:"Fonts - Social Networks",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/28/8c/f1288ce5-8f5a-d530-f428-f42b65d2f7c1/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/fonts-social-networks/id1502945652"},
+{n:"Bills Splitter Widget - Budget",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/ec/68/87/ec688747-1128-f769-b355-509b4c6c20b4/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/bills-splitter-widget-budget/id1360791872"},
+{n:"Big Clock - Pro Time Widgets",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d5/ad/4e/d5ad4e01-d95c-dcbd-7da4-ded907e74421/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/big-clock-pro-time-widgets/id1495547377"},
+{n:"Calendar Widget - Date Widgets",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7a/f2/a5/7af2a540-518c-85e1-ee32-11d143b1417b/AppIcon-0-1x_U007emarketing-0-7-0-sRGB-85-220-0.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/calendar-widget-date-widgets/id1550340128"},
+{n:"FlashLight - TorchLight Widget",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6c/70/81/6c7081e0-35a4-5cfa-be53-9169336f4f69/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/flashlight-torchlight-widget/id1562397724"},
+{n:"Birthday Countdown Widget Pro",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c6/ce/a9/c6cea93f-4b6e-d25c-8f3f-68ed34afd350/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/birthday-countdown-widget-pro/id1594824793"},
+{n:"StandBy – Big Desk Clock",p:"Android",i:"https://play-lh.googleusercontent.com/sl_4SXgnVK-ZgX51fxiJrU_xdcaI4SSdSXFgy55TJBF5ssrrrgM4JCHRMYVWGmzy8-qmeObXPUy7Ru1c_2wicR4=s128",u:"https://play.google.com/store/apps/details?id=com.motivateapps.bigclock"},
+{n:"Flip Clock – Focus Clock",p:"Android",i:"https://play-lh.googleusercontent.com/5WdCmZfbfb0pSZfyD3e899TnEOT0Kd6hoyRgxT4jnys5AC5HDEdMhMN23gzmOpZDC7l_Boum3KJ26bfwdLiC=s128",u:"https://play.google.com/store/apps/details?id=com.motivateapps.flipclock"},
+{n:"Vibrator Pro – Strong Vibration",p:"Android",i:"https://play-lh.googleusercontent.com/q6hIhbgExMlkP4r36hT757-GTcSDhh3Wt3Nv3QaE5tE8wGapLWd8iiWVbcThGjlZ1epY_5O3iwFyWUxsEdhfmQ=s128",u:"https://play.google.com/store/apps/details?id=com.motivateapps.vibevibration"},
+{n:"PureMirror – Makeup Mirror",p:"Android",i:"https://play-lh.googleusercontent.com/y0gpLtnjWN5DYKRoYLU1DfClCZg_YqXxPueVmmKgOW_zu0tQkape-jI5ov5eeWS1V56CpM35NfaLEMXht_KMatM=s128",u:"https://play.google.com/store/apps/details?id=com.motivateapps.puremirror"},
+{n:"Flip Timer – Countdown & Up",p:"Android",i:"https://play-lh.googleusercontent.com/HuIWQtWaen_MBsrASRmW9e_9Myz9rKFgZVxSq5_vA40VfXL56isCZklofMqLKj9AWzzA3Hc-oq6RpNoIQls58g=s128",u:"https://play.google.com/store/apps/details?id=com.motivateapps.fliptimerflow"},
+{n:"Water Eject – Speaker Cleaner",p:"Android",i:"https://play-lh.googleusercontent.com/4bvnoCXsgu94WalNLRQSH2ouX6i8kpksHK2mcWI_kMA83DSIZUekF05gtlML9ow69ANmxhp36CH4-EQhOXnw=s128",u:"https://play.google.com/store/apps/details?id=com.motivateapps.watereject"},
+{n:"Periodic Table – Elements Quiz",p:"Android",i:"https://play-lh.googleusercontent.com/ZJh5kFjpCM3r9Ags4x0lMl8BVz2M7L3jMDh4givIPL6i3bEhKf7lsUJ6HAsfCshlN_de4wbtf1WOmfKfIGTZtg=s128",u:"https://play.google.com/store/apps/details?id=com.motivateapps.periodictable"},
+{n:"Calculator calc – simple",p:"Android",i:"https://play-lh.googleusercontent.com/K8nHS5_bx_7wj-Eq2Ky44lvAc8nWKUT3MpnHrEY-yFw8_JecTU1rkptN1QnZqv76UeB441DX6DROLNee9i6ewEc=s128",u:"https://play.google.com/store/apps/details?id=com.amit.motivate.calculator"},
+{n:"Big Clock — Time Widgets",p:"Mac",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/04/7a/7e/047a7e9b-a56b-1ae4-2ad8-29f34f13d049/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.jpg",u:"https://apps.apple.com/us/app/big-clock-time-widgets/id1631660311"},
+{n:"Periodic Table TV — Elements",p:"Apple TV",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6b/fe/e8/6bfee885-b45f-fbf7-4d63-32553c14ee90/App_Icon-marketing.lsr/512x512bb.jpg",u:"https://apps.apple.com/us/app/periodic-table-tv-elements/id6759576602"},
+{n:"Elite Clock Vision — Photo Frame",p:"Vision Pro",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/eb/f4/e2/ebf4e2f1-73ce-2365-4f25-111fd2922ee5/AppIcon.lsr/512x512bb.jpg",u:"https://apps.apple.com/us/app/elite-clock-vision-photo-frame/id6749515310"}
+];
+const track=document.getElementById('carousel-track');
+if(track){
+  const frag=document.createDocumentFragment();
+  for(let copy=0;copy<2;copy++){
+    ALL_APPS.forEach(app=>{
+      const a=document.createElement('a');
+      a.className='carousel-item';
+      a.href=app.u; a.target='_blank'; a.rel='noopener';
+      a.setAttribute('aria-label','Open '+app.n+' on the '+(app.p==='Android'?'Play Store':'App Store'));
+      a.innerHTML='<img src="'+app.i+'" alt="" loading="lazy"><span class="c-name">'+app.n+'</span><span class="c-plat">'+app.p+'</span>';
+      frag.appendChild(a);
+    });
+  }
+  track.appendChild(frag);
+}
+</script>
+</body></html>
