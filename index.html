@@ -240,10 +240,17 @@
   </div>
 </section>
 
-<section class="carousel-wrap">
-  <div class="carousel-head reveal"><p class="eyebrow">The full lineup</p><h2>Every app, one shelf.</h2><p>iPhone, Android, Mac, Apple TV and Vision Pro — tap any icon to open it.</p></div>
+<section class="carousel-wrap" id="apple-lineup">
+  <div class="carousel-head reveal"><p class="eyebrow">The Apple ecosystem</p><h2>Every Apple app, one shelf.</h2><p>iPhone, Mac, Apple TV and Vision Pro — tap any icon to open it.</p></div>
   <div class="carousel-track-outer">
-    <div class="carousel-track" id="carousel-track"></div>
+    <div class="carousel-track" id="carousel-track-apple"></div>
+  </div>
+</section>
+
+<section class="carousel-wrap" id="android-lineup">
+  <div class="carousel-head reveal"><p class="eyebrow">On Android</p><h2>Every Android app, one shelf.</h2><p>All our Android apps — tap any icon to open it.</p></div>
+  <div class="carousel-track-outer">
+    <div class="carousel-track" id="carousel-track-android"></div>
   </div>
 </section>
 
@@ -413,11 +420,11 @@ const ALL_APPS=[
 {n:"Periodic Table TV — Elements",p:"Apple TV",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6b/fe/e8/6bfee885-b45f-fbf7-4d63-32553c14ee90/App_Icon-marketing.lsr/512x512bb.jpg",u:"https://apps.apple.com/us/app/periodic-table-tv-elements/id6759576602"},
 {n:"Elite Clock Vision — Photo Frame",p:"Vision Pro",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/eb/f4/e2/ebf4e2f1-73ce-2365-4f25-111fd2922ee5/AppIcon.lsr/512x512bb.jpg",u:"https://apps.apple.com/us/app/elite-clock-vision-photo-frame/id6749515310"}
 ];
-const track=document.getElementById('carousel-track');
-if(track){
+function buildCarouselTrack(el, apps){
+  if(!el) return;
   const frag=document.createDocumentFragment();
   for(let copy=0;copy<2;copy++){
-    ALL_APPS.forEach(app=>{
+    apps.forEach(app=>{
       const a=document.createElement('a');
       a.className='carousel-item';
       a.href=app.u; a.target='_blank'; a.rel='noopener';
@@ -426,7 +433,9 @@ if(track){
       frag.appendChild(a);
     });
   }
-  track.appendChild(frag);
+  el.appendChild(frag);
 }
+buildCarouselTrack(document.getElementById('carousel-track-apple'), ALL_APPS.filter(app=>app.p!=='Android'));
+buildCarouselTrack(document.getElementById('carousel-track-android'), ALL_APPS.filter(app=>app.p==='Android'));
 </script>
 </body></html>
