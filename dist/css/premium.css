@@ -19,7 +19,7 @@ img{max-width:100%;display:block}
 .badge-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .store-badge{position:relative;z-index:2;display:inline-flex;align-items:center;border-radius:12px;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
 .store-badge:hover{transform:translateY(-3px);box-shadow:0 16px 30px rgba(0,0,0,.22)}
-.store-badge .badge-img{display:block;height:46px;width:auto;border-radius:12px}
+.store-badge .badge-img{display:block;height:46px;width:auto;aspect-ratio:4096/1214;object-fit:contain;flex-shrink:0}
 .store-badge.small .badge-img{height:36px}
 
 /* ---------- nav ---------- */
