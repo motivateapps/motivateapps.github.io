@@ -352,7 +352,7 @@ if(heroTrack){
         const itemCenter=r.left+r.width/2;
         const dist=Math.abs(itemCenter-centerX);
         const t=Math.max(0, 1-dist/radius);
-        const scale=1+t*0.28;
+        const scale=1+t*0.12;
         const wrap=el.firstElementChild; // .hp-imgwrap
         wrap.style.transform='scale('+scale.toFixed(3)+')';
         if(t>0.6) el.classList.add('is-center'); else el.classList.remove('is-center');
