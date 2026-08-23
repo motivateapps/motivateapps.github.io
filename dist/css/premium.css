@@ -15,25 +15,12 @@ img{max-width:100%;display:block}
 ::selection{background:#dbe9ff}
 :focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 
-/* ---------- shared store badges (trademark-neutral, icon system) ---------- */
+/* ---------- shared store badges (official app_store.png / google_play.png artwork) ---------- */
 .badge-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.store-badge{position:relative;z-index:2;display:inline-flex;align-items:center;gap:11px;background:#000;color:#fff;padding:9px 18px 9px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.08);transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s ease}
-.store-badge:hover{transform:translateY(-3px);box-shadow:0 16px 30px rgba(0,0,0,.22);background:#161618}
-.store-badge .mark{width:28px;height:28px;flex:0 0 auto;border-radius:8px;display:flex;align-items:center;justify-content:center}
-.store-badge.apple .mark{background:rgba(255,255,255,.1)}
-.store-badge.play .mark{background:linear-gradient(135deg,#00c6ff,#0fbf6f 55%,#ffcd3c)}
-.store-badge .mark svg{width:16px;height:16px}
-.store-badge .txt{display:flex;flex-direction:column;line-height:1.15}
-.store-badge .txt .l1{font-size:10px;letter-spacing:.05em;text-transform:uppercase;opacity:.72;font-weight:500}
-.store-badge .txt .l2{font-size:16.5px;font-weight:700;letter-spacing:-.01em;font-family:var(--display)}
-.store-badge.small{padding:7px 14px 7px 11px;border-radius:12px}
-.store-badge.small .mark{width:22px;height:22px;border-radius:6px}
-.store-badge.small .mark svg{width:12px;height:12px}
-.store-badge.small .txt .l1{font-size:8.5px}
-.store-badge.small .txt .l2{font-size:13px}
-.store-badge.on-dark{background:#fff;color:#111113;border-color:rgba(0,0,0,.06)}
-.store-badge.on-dark:hover{background:#f0f0f2}
-.store-badge.on-dark.apple .mark{background:rgba(0,0,0,.06)}
+.store-badge{position:relative;z-index:2;display:inline-flex;align-items:center;border-radius:12px;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.store-badge:hover{transform:translateY(-3px);box-shadow:0 16px 30px rgba(0,0,0,.22)}
+.store-badge .badge-img{display:block;height:46px;width:auto;border-radius:12px}
+.store-badge.small .badge-img{height:36px}
 
 /* ---------- nav ---------- */
 .nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.7);backdrop-filter:saturate(200%) blur(24px);-webkit-backdrop-filter:saturate(200%) blur(24px);border-bottom:1px solid var(--line)}
