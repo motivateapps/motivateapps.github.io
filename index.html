@@ -314,6 +314,52 @@ if(heroTrack){
     });
   }
   heroTrack.appendChild(frag);
+
+  (function(){
+    const outer=document.querySelector('.hero-carousel-outer');
+    const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const items=Array.from(heroTrack.querySelectorAll('.hero-phone'));
+    if(reduceMotion || !items.length){
+      items.forEach(el=>el.classList.add('is-center'));
+      return;
+    }
+    let halfWidth=0;
+    function measure(){ halfWidth = heroTrack.scrollWidth/2; }
+    measure();
+    window.addEventListener('resize', measure);
+
+    let offset=0, paused=false, last=null;
+    const speed=34; // px/sec
+    outer.addEventListener('mouseenter', ()=>{paused=true;});
+    outer.addEventListener('mouseleave', ()=>{paused=false;});
+    outer.addEventListener('touchstart', ()=>{paused=true;}, {passive:true});
+    outer.addEventListener('touchend', ()=>{paused=false;}, {passive:true});
+
+    function frame(ts){
+      if(last===null) last=ts;
+      const dt=(ts-last)/1000; last=ts;
+      if(!paused){
+        offset-=speed*dt;
+        if(halfWidth && -offset>=halfWidth) offset+=halfWidth;
+      }
+      heroTrack.style.transform='translateX('+offset+'px)';
+
+      const outerRect=outer.getBoundingClientRect();
+      const centerX=outerRect.left+outerRect.width/2;
+      const radius=230;
+      items.forEach(el=>{
+        const r=el.getBoundingClientRect();
+        const itemCenter=r.left+r.width/2;
+        const dist=Math.abs(itemCenter-centerX);
+        const t=Math.max(0, 1-dist/radius);
+        const scale=1+t*0.42;
+        el.style.transform='scale('+scale.toFixed(3)+') translateY('+(-(t*10)).toFixed(1)+'px)';
+        if(t>0.55) el.classList.add('is-center'); else el.classList.remove('is-center');
+      });
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
 }
 const ALL_APPS=[
 {n:"Motivate — Daily Motivation",p:"iPhone",i:"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b7/6d/2d/b76d2d8a-30ad-da9a-fb7a-a7d9b0a99008/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",u:"https://itunes.apple.com/us/app/motivate/id1269495142?ls=1&mt=8"},
