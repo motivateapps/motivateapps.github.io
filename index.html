@@ -309,7 +309,7 @@ if(heroTrack){
       a.className='hero-phone';
       a.href=app.u; a.target='_blank'; a.rel='noopener';
       a.setAttribute('aria-label','Open '+app.n+' on the App Store');
-      a.innerHTML='<img src="dist/images/'+app.img+'" alt="'+app.n+' running on iPhone" loading="lazy"><span class="hp-name">'+app.n+'</span>';
+      a.innerHTML='<span class="hp-imgwrap"><img src="dist/images/'+app.img+'" alt="'+app.n+' running on iPhone" loading="lazy"></span><span class="hp-name">'+app.n+'</span>';
       frag.appendChild(a);
     });
   }
@@ -346,15 +346,16 @@ if(heroTrack){
 
       const outerRect=outer.getBoundingClientRect();
       const centerX=outerRect.left+outerRect.width/2;
-      const radius=230;
+      const radius=200;
       items.forEach(el=>{
         const r=el.getBoundingClientRect();
         const itemCenter=r.left+r.width/2;
         const dist=Math.abs(itemCenter-centerX);
         const t=Math.max(0, 1-dist/radius);
-        const scale=1+t*0.42;
-        el.style.transform='scale('+scale.toFixed(3)+') translateY('+(-(t*10)).toFixed(1)+'px)';
-        if(t>0.55) el.classList.add('is-center'); else el.classList.remove('is-center');
+        const scale=1+t*0.28;
+        const wrap=el.firstElementChild; // .hp-imgwrap
+        wrap.style.transform='scale('+scale.toFixed(3)+')';
+        if(t>0.6) el.classList.add('is-center'); else el.classList.remove('is-center');
       });
       requestAnimationFrame(frame);
     }
