@@ -251,11 +251,12 @@ img{max-width:100%;display:block}
 /* ---------- all apps ---------- */
 .all-apps{padding:120px 24px}
 .mini-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.mini-card{position:relative;background:var(--soft);border-radius:var(--radius-md);padding:24px;min-height:216px;display:flex;align-items:center;gap:20px;transition:transform .3s var(--ease),background .3s ease}
-.mini-card:hover{transform:translateY(-4px);background:var(--soft-2)}
-.mini-card img{width:104px;max-height:150px;object-fit:contain;position:relative;z-index:2;pointer-events:none}
+.mini-card{position:relative;background:var(--soft);border-radius:var(--radius-md);padding:24px;min-height:216px;display:flex;align-items:center;gap:20px;box-shadow:0 1px 0 rgba(0,0,0,.03),0 20px 38px -20px rgba(20,20,30,.16);transition:transform .3s var(--ease),background .3s ease,box-shadow .3s var(--ease)}
+.mini-card:hover{transform:translateY(-4px);background:var(--soft-2);box-shadow:0 1px 0 rgba(0,0,0,.03),0 28px 48px -18px rgba(20,20,30,.22)}
+.mini-card img{width:104px;max-height:150px;object-fit:contain;position:relative;z-index:2;pointer-events:none;flex:0 0 auto}
 .mini-card .mini-copy{position:relative;z-index:2;pointer-events:none}
-.mini-card h3{font-size:18.5px;letter-spacing:-.02em;margin:0 0 8px;font-weight:700;font-family:var(--display)}
+.mini-card h3{font-size:18.5px;letter-spacing:-.02em;margin:0 0 6px;font-weight:700;font-family:var(--display)}
+.mini-card .mini-copy p{font-size:13px;color:var(--muted);line-height:1.5;margin:0 0 14px;max-width:220px}
 
 /* ---------- support ---------- */
 .support{padding:120px 24px;background:linear-gradient(180deg,#fff,var(--soft))}
