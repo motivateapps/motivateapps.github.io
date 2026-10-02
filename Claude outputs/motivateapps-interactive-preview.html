@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Motivate Apps — Interactive Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--ink:#111113;--muted:#68686f;--soft:#f6f6f8;--soft2:#eceef1;--line:rgba(17,17,19,.09);--blue:#0071e3;--android:#0f9d58;--ease:cubic-bezier(.16,1,.3,1);--display:'Plus Jakarta Sans',-apple-system,sans-serif;--body:'Inter',-apple-system,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.03em;margin:0}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:1180px;margin:auto;padding:0 20px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin:0 0 10px}
+.note{background:#111;color:#fff;font-size:13px;text-align:center;padding:10px 16px}
+.note b{color:#5ac8fa}
+.tag{display:inline-block;font-size:11px;font-weight:700;background:#fff3cd;color:#7a5600;padding:3px 8px;border-radius:6px;margin-bottom:12px;letter-spacing:.03em}
+section{padding:80px 0}
+.sh{text-align:center;max-width:680px;margin:0 auto 40px}
+.sh h2{font-size:clamp(30px,5vw,48px);line-height:1.05}
+.sh p{color:var(--muted);font-size:17px;line-height:1.5;margin:14px 0 0}
+
+/* ---------- HERO ---------- */
+.hero{padding:70px 0 60px;background:radial-gradient(1200px 500px at 70% -10%,#e8f1ff,transparent 60%),radial-gradient(800px 400px at 0% 100%,#fff0e6,transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(40px,6.5vw,72px);line-height:1}
+.hero h1 .swap{display:inline-block;background:linear-gradient(90deg,var(--blue),#7b5cff);-webkit-background-clip:text;background-clip:text;color:transparent;transition:opacity .3s,transform .3s var(--ease)}
+.hero h1 .swap.out{opacity:0;transform:translateY(12px)}
+.lead{color:var(--muted);font-size:18px;line-height:1.5;margin:18px 0 26px;max-width:480px}
+.plat-switch{display:inline-flex;gap:4px;background:var(--soft2);padding:4px;border-radius:999px;flex-wrap:wrap}
+.plat-switch button{padding:8px 14px;border-radius:999px;font-size:13.5px;font-weight:600;color:var(--muted);transition:all .25s var(--ease)}
+.plat-switch button.on{background:#fff;color:var(--ink);box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.smart-cta{margin-top:22px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;padding:13px 22px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .25s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.smart-hint{font-size:12.5px;color:var(--muted)}
+.hero-icons{display:flex;gap:10px;margin-top:26px;min-height:58px}
+.hero-icons img{width:52px;height:52px;border-radius:13px;box-shadow:0 6px 16px rgba(0,0,0,.12);animation:pop .5s var(--ease) both}
+@keyframes pop{from{opacity:0;transform:scale(.6) translateY(10px)}}
+
+/* flip clock */
+.clock-stage{background:#0d0d10;border-radius:32px;padding:36px 24px;box-shadow:0 40px 80px -30px rgba(0,0,0,.5);position:relative;overflow:hidden}
+.clock-stage::after{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at 50% 0,rgba(255,255,255,.08),transparent)}
+.flip{display:flex;justify-content:center;gap:10px;align-items:center}
+.flip .grp{display:flex;gap:6px}
+.card{position:relative;width:clamp(48px,8vw,74px);height:clamp(70px,11vw,104px);perspective:400px;font-family:var(--display);font-weight:800;font-size:clamp(44px,7.5vw,72px);color:#f5f5f7}
+.card .half{position:absolute;left:0;right:0;height:50%;overflow:hidden;background:#1d1d22;display:flex;justify-content:center}
+.card .top{top:0;border-radius:10px 10px 0 0;align-items:flex-end}
+.card .bot{bottom:0;border-radius:0 0 10px 10px;align-items:flex-start;background:#19191d}
+.card .half span{line-height:0}
+.card .flap{position:absolute;left:0;right:0;top:0;height:50%;background:#1d1d22;border-radius:10px 10px 0 0;overflow:hidden;display:flex;justify-content:center;align-items:flex-end;transform-origin:bottom;backface-visibility:hidden}
+.card .flap span{line-height:0}
+.card.go .flap{animation:flipdown .55s cubic-bezier(.4,0,.6,1) forwards}
+@keyframes flipdown{to{transform:rotateX(-180deg)}}
+.card::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:#0d0d10;z-index:3;transform:translateY(-1px)}
+.colon{color:#55555c;font-size:44px;font-weight:800;padding-bottom:8px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:.2}}
+.clock-meta{display:flex;justify-content:space-between;color:#8e8e93;font-size:12.5px;margin-top:20px;position:relative;z-index:1}
+.clock-meta button{color:#d1d1d6;background:#1f1f24;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600}
+
+/* ---------- PLAYGROUND ---------- */
+.play{background:var(--soft)}
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.tabs button{padding:10px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:600;font-size:14px;transition:all .25s var(--ease)}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;background:#fff;border-radius:32px;padding:36px;box-shadow:0 20px 50px -30px rgba(0,0,0,.25)}
+.pg-copy h3{font-size:30px;line-height:1.1}
+.pg-copy p{color:var(--muted);line-height:1.55;font-size:16px}
+.pg-copy .btn{margin-top:10px}
+.pane{display:none}.pane.on{display:block;animation:fade .4s var(--ease)}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}}
+.widget{margin:auto;width:min(320px,100%);aspect-ratio:1;border-radius:36px;padding:26px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;box-shadow:0 30px 60px -25px rgba(0,0,0,.35)}
+/* countdown */
+.w-count{background:linear-gradient(145deg,#7b5cff,#4a2fd8);color:#fff}
+.w-count .big{font-family:var(--display);font-size:84px;font-weight:800;line-height:1}
+.w-count .lbl{opacity:.8;font-size:14px;margin-top:4px}
+.w-count .sub{font-variant-numeric:tabular-nums;font-size:15px;margin-top:14px;opacity:.9}
+.w-count input{margin-top:16px;border:0;border-radius:10px;padding:8px 10px;font:inherit;font-size:14px}
+.w-count .ev{font-weight:700;font-size:16px;background:transparent;border:0;color:#fff;text-align:center;width:100%;outline:none;margin-bottom:10px}
+/* tally */
+.w-tally{background:linear-gradient(145deg,#e8fbf3,#c8f1dd)}
+.ring{width:170px;height:170px;position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring .n{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:54px;color:#0b6b3c}
+.ring .n small{font-size:13px;font-family:var(--body);font-weight:600;color:#3b7d5c}
+.tally-btns{display:flex;gap:12px;margin-top:16px}
+.tally-btns button{width:54px;height:54px;border-radius:50%;background:#0f9d58;color:#fff;font-size:26px;font-weight:700;transition:transform .15s}
+.tally-btns button:active{transform:scale(.88)}
+.tally-btns button.minus{background:#fff;color:#0f9d58}
+.bump{animation:bump .3s var(--ease)}@keyframes bump{50%{transform:scale(1.15)}}
+/* sticky */
+.w-sticky{background:#ffe680;transform:rotate(-2deg);transition:background .3s;align-items:stretch;justify-content:flex-start}
+.w-sticky textarea{flex:1;border:0;background:transparent;resize:none;font-family:'Plus Jakarta Sans';font-size:22px;font-weight:600;line-height:1.35;outline:none;color:#3a3000}
+.swatches{display:flex;gap:8px;justify-content:center;margin-top:18px}
+.swatches button{width:28px;height:28px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.swatches button.on{box-shadow:0 0 0 2px var(--ink)}
+/* motivate */
+.w-quote{background:linear-gradient(145deg,#ff9a5a,#e8703a);color:#fff}
+.w-quote q{font-family:var(--display);font-size:22px;font-weight:700;line-height:1.3;quotes:none;transition:opacity .3s}
+.w-quote .by{margin-top:12px;opacity:.85;font-size:14px}
+.w-quote button{margin-top:20px;background:rgba(255,255,255,.22);color:#fff;padding:9px 16px;border-radius:999px;font-weight:600;font-size:13px}
+/* analog */
+.w-analog{background:#f4efe6}
+.dial{width:230px;height:230px;border-radius:50%;background:#fff;position:relative;box-shadow:inset 0 0 0 10px #1d1d22,0 10px 30px rgba(0,0,0,.15)}
+.dial i{position:absolute;left:50%;top:50%;width:3px;height:12px;background:#1d1d22;margin:-6px 0 0 -1.5px}
+.hand{position:absolute;left:50%;bottom:50%;transform-origin:bottom center;border-radius:4px}
+.hand.h{width:6px;height:58px;margin-left:-3px;background:#1d1d22}
+.hand.m{width:4px;height:84px;margin-left:-2px;background:#1d1d22}
+.hand.s{width:2px;height:92px;margin-left:-1px;background:#e8703a}
+.dial .pin{position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px;border-radius:50%;background:#e8703a}
+.faces{display:flex;gap:8px;justify-content:center;margin-top:16px}
+.faces button{padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600;background:#fff;border:1px solid var(--line)}
+
+/* ---------- FINDER ---------- */
+.finder-bar{display:flex;flex-direction:column;gap:14px;align-items:center;margin-bottom:30px}
+.search{width:min(560px,100%);position:relative}
+.search input{width:100%;padding:16px 20px 16px 48px;border-radius:999px;border:1px solid var(--line);background:var(--soft);font:inherit;font-size:16px;outline:none;transition:all .2s}
+.search input:focus{background:#fff;border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,113,227,.12)}
+.search svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.chip{padding:8px 14px;border-radius:999px;border:1px solid var(--line);font-size:13.5px;font-weight:600;background:#fff;transition:all .2s var(--ease)}
+.chip .c{opacity:.5;margin-left:4px;font-weight:500}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip.cat.on{background:var(--blue);border-color:var(--blue)}
+.result-count{font-size:13px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.app{background:var(--soft);border-radius:22px;padding:18px 14px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .2s;animation:pop .4s var(--ease) both}
+.app:hover{transform:translateY(-4px);background:#fff;box-shadow:0 18px 40px -20px rgba(0,0,0,.3)}
+.app img{width:64px;height:64px;border-radius:15px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.app h4{margin:0;font-size:13.5px;line-height:1.25;font-weight:600}
+.app .pl{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;background:#fff;color:var(--muted)}
+.app .pl.Android{color:var(--android)}
+.empty{text-align:center;color:var(--muted);padding:40px;grid-column:1/-1}
+
+/* ---------- QUIZ ---------- */
+.quiz{background:linear-gradient(180deg,#0b0b0c,#1a1a22);color:#fff}
+.quiz .sh p{color:#a1a1a6}
+.qbox{max-width:760px;margin:auto;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:32px}
+.qstep h3{font-size:22px;margin-bottom:16px}
+.qopts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.qopts button{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px;text-align:left;font-weight:600;transition:all .2s}
+.qopts button:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
+.qopts button .e{font-size:22px;display:block;margin-bottom:6px}
+.qprog{display:flex;gap:6px;margin-bottom:20px}.qprog span{height:4px;flex:1;border-radius:4px;background:rgba(255,255,255,.15)}.qprog span.on{background:#5ac8fa}
+.qres{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:8px}
+.qres a{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.08);border-radius:16px;padding:12px;animation:pop .4s var(--ease) both}
+.qres img{width:48px;height:48px;border-radius:12px}
+.qres b{font-size:14px;display:block}.qres small{color:#a1a1a6;font-size:12px}
+.qreset{margin-top:18px;color:#5ac8fa;font-weight:600;font-size:14px}
+
+/* ---------- TILT CARDS ---------- */
+.tilt-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;perspective:1000px}
+.tcard{border-radius:28px;padding:28px;min-height:300px;position:relative;overflow:hidden;transform-style:preserve-3d;transition:transform .2s ease-out;background:linear-gradient(160deg,var(--a),var(--b));display:flex;flex-direction:column;justify-content:flex-end}
+.tcard::before{content:"";position:absolute;inset:0;background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.55),transparent 60%);opacity:0;transition:opacity .3s}
+.tcard:hover::before{opacity:1}
+.tcard img{width:84px;height:84px;border-radius:20px;box-shadow:0 18px 30px -10px rgba(0,0,0,.35);transform:translateZ(50px);margin-bottom:auto}
+.tcard h3{font-size:22px;transform:translateZ(30px)}
+.tcard p{color:#4a4a50;font-size:14.5px;line-height:1.5;margin:8px 0 0;transform:translateZ(20px)}
+
+/* sticky mobile app bar */
+.dock{position:fixed;left:50%;bottom:18px;transform:translate(-50%,120px);background:rgba(17,17,19,.86);backdrop-filter:blur(18px);color:#fff;border-radius:999px;padding:8px 8px 8px 18px;display:flex;gap:14px;align-items:center;font-size:14px;font-weight:600;transition:transform .5s var(--ease);z-index:50;box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.dock.show{transform:translate(-50%,0)}
+.dock a{background:#fff;color:#111;padding:9px 16px;border-radius:999px}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.reveal.vis{opacity:1;transform:none}
+
+@media(max-width:820px){.hero-grid,.pg{grid-template-columns:1fr}.pg{padding:24px}.tilt-row{grid-template-columns:1fr}section{padding:60px 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+
+<div class="note"><b>PREVIEW ONLY</b> — proposed interactive sections for motivateapps.com. Your original index.html is untouched.</div>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="tag">IDEA 1 · Live hero + platform switcher + smart download</span>
+    <p class="eyebrow">Motivate Apps</p>
+    <h1>Small apps for<br>your <span class="swap" id="swap">iPhone</span>.</h1>
+    <p class="lead" id="heroLead">Widgets, clocks and little tools that become part of your day.</p>
+    <div class="plat-switch" id="platSwitch">
+      <button class="on" data-p="iPhone">iPhone</button><button data-p="Android">Android</button><button data-p="Mac">Mac</button><button data-p="Apple TV">Apple TV</button><button data-p="Vision Pro">Vision Pro</button>
+    </div>
+    <div class="hero-icons" id="heroIcons"></div>
+    <div class="smart-cta">
+      <a class="btn" id="smartBtn" href="#">Get the apps</a>
+      <a class="btn ghost" href="#finder">Browse all 50+</a>
+    </div>
+    <p class="smart-hint" id="smartHint"></p>
+  </div>
+  <div class="clock-stage">
+    <div class="flip" id="flip"></div>
+    <div class="clock-meta"><span>↑ This is our Flip Clock, running live</span><button id="fmt">24h</button></div>
+  </div>
+</div></section>
+
+<!-- ============ 2. PLAYGROUND ============ -->
+<section class="play reveal"><div class="wrap">
+  <div class="sh"><span class="tag">IDEA 2 · "Try before you download" playground</span><p class="eyebrow">Try it live</p><h2>Play with the widgets, right here.</h2><p>Every widget below actually works. If you like it, the real app is one tap away.</p></div>
+  <div class="tabs" id="tabs">
+    <button class="on" data-t="count">⏳ Countdown</button><button data-t="tally">➕ Tally</button><button data-t="sticky">📝 Sticky Note</button><button data-t="quote">✨ Motivate</button><button data-t="analog">🕰 Analog Clock</button>
+  </div>
+  <div class="pg">
+    <div class="pg-copy">
+      <div class="pane on" data-t="count"><h3>Countdown Widget</h3><p>Name your event, pick a date — watch it tick down. The app puts this on your Home Screen and Lock Screen.</p><a class="btn" target="_blank" href="https://apps.apple.com/us/app/countdown-widget-day-counter/id1568911092"> Get it on App Store</a></div>
+      <div class="pane" data-t="tally"><h3>Tally Counter</h3><p>Tap to count habits, glasses of water, push-ups — anything. Set a goal and fill the ring. Syncs to Apple Watch.</p><a class="btn" target="_blank" href="https://apps.apple.com/us/app/tally-counter-widget-tracker/id6480589201"> Get it on App Store</a></div>
+      <div class="pane" data-t="sticky"><h3>Sticky Widget</h3><p>Type a note and pick a colour. In the app, it lives on your Home Screen so you can't forget it.</p><a class="btn" target="_blank" href="https://apps.apple.com/us/app/sticky-widget-sticky-notes/id1541547937"> Get it on App Store</a></div>
+      <div class="pane" data-t="quote"><h3>Motivate</h3><p>A fresh line of motivation every time you look at your phone. Shuffle to see a few.</p><a class="btn" target="_blank" href="https://itunes.apple.com/us/app/motivate/id1269495142"> Get it on App Store</a></div>
+      <div class="pane" data-t="analog"><h3>Analog Clock — Desk Widget</h3><p>100+ watch faces. Switch a few styles here — this one's running in real time.</p><a class="btn" target="_blank" href="https://apps.apple.com/us/app/analog-clock-desk-widget/id1567718618"> Get it on App Store</a></div>
+    </div>
+    <div>
+      <div class="pane on" data-t="count"><div class="widget w-count">
+        <input class="ev" id="evName" value="🎉 New Year 2027" aria-label="Event name">
+        <div class="big" id="cDays">0</div><div class="lbl">days to go</div>
+        <div class="sub" id="cSub">00h 00m 00s</div>
+        <input type="date" id="cDate" aria-label="Event date">
+      </div></div>
+      <div class="pane" data-t="tally"><div class="widget w-tally">
+        <div class="ring"><svg width="170" height="170"><circle cx="85" cy="85" r="74" fill="none" stroke="rgba(15,157,88,.15)" stroke-width="14"/><circle id="ringArc" cx="85" cy="85" r="74" fill="none" stroke="#0f9d58" stroke-width="14" stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465" style="transition:stroke-dashoffset .4s var(--ease)"/></svg><div class="n"><span id="tN">0</span><small>of 8 glasses 💧</small></div></div>
+        <div class="tally-btns"><button class="minus" id="tMinus" aria-label="minus">−</button><button id="tPlus" aria-label="plus">+</button></div>
+      </div></div>
+      <div class="pane" data-t="sticky"><div class="widget w-sticky" id="sticky"><textarea id="stickyTxt" maxlength="90">Call mom 📞
+Buy oat milk
+Ship the update!</textarea></div>
+        <div class="swatches" id="sw"><button class="on" style="background:#ffe680" data-c="#ffe680"></button><button style="background:#ffc6dd" data-c="#ffc6dd"></button><button style="background:#bfe9ff" data-c="#bfe9ff"></button><button style="background:#c9f5d6" data-c="#c9f5d6"></button><button style="background:#e3d6ff" data-c="#e3d6ff"></button></div></div>
+      <div class="pane" data-t="quote"><div class="widget w-quote"><q id="qt">Small steps every day add up to big results.</q><div class="by" id="qb">— Motivate</div><button id="qShuffle">↻ Shuffle</button></div></div>
+      <div class="pane" data-t="analog"><div class="widget w-analog" id="wAnalog"><div class="dial" id="dial"><div class="hand h" id="hh"></div><div class="hand m" id="hm"></div><div class="hand s" id="hs"></div><div class="pin"></div></div></div>
+        <div class="faces" id="faces"><button data-f="classic">Classic</button><button data-f="night">Night</button><button data-f="mint">Mint</button><button data-f="rose">Rose</button></div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ 3. FINDER ============ -->
+<section id="finder" class="reveal"><div class="wrap">
+  <div class="sh"><span class="tag">IDEA 3 · One searchable app library (replaces the 2 shelves + "More to explore")</span><p class="eyebrow">All apps</p><h2>Find your next favourite.</h2><p>Search, filter by device or by what you want to do.</p></div>
+  <div class="finder-bar">
+    <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" placeholder="Try “clock”, “notes”, “countdown”…" aria-label="Search apps"></label>
+    <div class="chips" id="platChips"></div>
+    <div class="chips" id="catChips"></div>
+    <div class="result-count" id="rc"></div>
+  </div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<!-- ============ 4. QUIZ ============ -->
+<section class="quiz reveal"><div class="wrap">
+  <div class="sh"><span class="tag">IDEA 4 · "Help me choose" — 2-tap app picker</span><p class="eyebrow" style="color:#5ac8fa">Not sure where to start?</p><h2>Find your app in two taps.</h2><p>Tell us what you need and which device you use.</p></div>
+  <div class="qbox" id="qbox"></div>
+</div></section>
+
+<!-- ============ 5. TILT CARDS ============ -->
+<section class="reveal"><div class="wrap">
+  <div class="sh"><span class="tag">IDEA 5 · 3D tilt + spotlight on featured cards</span><p class="eyebrow">Featured</p><h2>Move your mouse over these.</h2></div>
+  <div class="tilt-row">
+    <a class="tcard" style="--a:#fff1e8;--b:#ffd5bd" href="#"><img src="https://motivateapps.com/icons/motivate-daily-motivation.jpg" alt=""><h3>Motivate</h3><p>Beautiful motivational widgets and reminders.</p></a>
+    <a class="tcard" style="--a:#eaf3ff;--b:#cfe3ff" href="#"><img src="https://motivateapps.com/icons/to-do-list-widget-simple.jpg" alt=""><h3>To Do List Widget</h3><p>Your list on the Home Screen and Apple Watch.</p></a>
+    <a class="tcard" style="--a:#f2edff;--b:#ddd0ff" href="#"><img src="https://motivateapps.com/icons/countdown-widget-day-counter.jpg" alt=""><h3>Countdown Widget</h3><p>Aesthetic countdowns for the days that matter.</p></a>
+  </div>
+  <p style="text-align:center;color:var(--muted);font-size:13px;margin-top:40px"><span class="tag">IDEA 6</span><br>Scroll down a bit — a floating "Get the apps" bar slides up from the bottom (great on mobile).</p>
+  <div style="height:300px"></div>
+</div></section>
+
+<div class="dock" id="dock">Motivate Apps · 50+ apps <a id="dockBtn" href="#">Get</a></div>
+
+<script>
+const B='https://motivateapps.com/';
+const RAW=[
+["Motivate — Daily Motivation","iPhone","icons/motivate-daily-motivation.jpg","https://itunes.apple.com/us/app/motivate/id1269495142"],
+["To Do List Widget - Simple","iPhone","icons/to-do-list-widget-simple.jpg","https://apps.apple.com/us/app/to-do-list-widget-simple/id1585508533"],
+["Countdown Widget - Day Counter","iPhone","icons/countdown-widget-day-counter.jpg","https://apps.apple.com/us/app/countdown-widget-day-counter/id1568911092"],
+["Tally Counter Widget","iPhone","icons/tally-counter-widget.jpg","https://apps.apple.com/us/app/tally-counter-widget-tracker/id6480589201"],
+["Analog Clock - Desk Widget","iPhone","icons/analog-clock-desk-widget.jpg","https://apps.apple.com/us/app/analog-clock-desk-widget/id1567718618"],
+["Loveit Noteit Widget Drawings","iPhone","icons/loveit-noteit-widget-drawings.jpg","https://apps.apple.com/us/app/loveit-noteit-widget-drawings/id1625662636"],
+["Photo Widget - Picture Collage","iPhone","icons/photo-widget-picture-collage.jpg","https://apps.apple.com/us/app/photo-widget-picture-collage/id1548449981"],
+["Call Widget : Speed Dial Pro","iPhone","icons/call-widget-speed-dial-pro.jpg","https://apps.apple.com/us/app/call-widget-speed-dial-pro/id1545582448"],
+["Sticky Widget - Sticky Notes","iPhone","icons/sticky-widget-sticky-notes.jpg","https://apps.apple.com/us/app/sticky-widget-sticky-notes/id1541547937"],
+["Color Widget Cool: Custom Pro","iPhone","icons/color-widget-cool-custom-pro.jpg","https://apps.apple.com/us/app/color-widget-cool-custom-pro/id1536946544"],
+["Flip Clock - Digital Clock","iPhone","icons/flip-clock-digital-clock.jpg","https://apps.apple.com/us/app/flip-clock-digital-clock/id1479450824"],
+["CountDown Widget - Pro Wedges","iPhone","icons/countdown-widget-pro-wedges.jpg","https://apps.apple.com/us/app/countdown-widget-pro-wedges/id1492526742"],
+["Fonts Art : Cool Font Keyboard","iPhone","icons/fonts-art-cool-font-keyboard.jpg","https://apps.apple.com/us/app/fonts-art-cool-font-keyboard/id1533466663"],
+["Daily Facts : Random Facts","iPhone","icons/daily-facts-random-facts.jpg","https://apps.apple.com/us/app/daily-facts-random-facts/id1426722415"],
+["Tic Tac Toe • 3-in-a-row","iPhone","icons/tic-tac-toe-3-in-a-row.jpg","https://apps.apple.com/us/app/tic-tac-toe-3-in-a-row/id1233975203"],
+["Fonts - Social Networks","iPhone","icons/fonts-social-networks.jpg","https://apps.apple.com/us/app/fonts-social-networks/id1502945652"],
+["Bills Splitter Widget - Budget","iPhone","icons/bills-splitter-widget-budget.jpg","https://apps.apple.com/us/app/bills-splitter-widget-budget/id1360791872"],
+["Big Clock - Pro Time Widgets","iPhone","icons/big-clock-pro-time-widgets.jpg","https://apps.apple.com/us/app/big-clock-pro-time-widgets/id1495547377"],
+["Calendar Widget - Date Widgets","iPhone","icons/calendar-widget-date-widgets.jpg","https://apps.apple.com/us/app/calendar-widget-date-widgets/id1550340128"],
+["FlashLight - TorchLight Widget","iPhone","icons/flashlight-torchlight-widget.jpg","https://apps.apple.com/us/app/flashlight-torchlight-widget/id1562397724"],
+["Birthday Countdown Widget Pro","iPhone","icons/birthday-countdown-widget-pro.jpg","https://apps.apple.com/us/app/birthday-countdown-widget-pro/id1594824793"],
+["StandBy – Big Desk Clock","Android","https://play-lh.googleusercontent.com/sl_4SXgnVK-ZgX51fxiJrU_xdcaI4SSdSXFgy55TJBF5ssrrrgM4JCHRMYVWGmzy8-qmeObXPUy7Ru1c_2wicR4=s128","https://play.google.com/store/apps/details?id=com.motivateapps.bigclock"],
+["Flip Clock – Focus Clock","Android","https://play-lh.googleusercontent.com/5WdCmZfbfb0pSZfyD3e899TnEOT0Kd6hoyRgxT4jnys5AC5HDEdMhMN23gzmOpZDC7l_Boum3KJ26bfwdLiC=s128","https://play.google.com/store/apps/details?id=com.motivateapps.flipclock"],
+["Vibrator Pro – Strong Vibration","Android","https://play-lh.googleusercontent.com/q6hIhbgExMlkP4r36hT757-GTcSDhh3Wt3Nv3QaE5tE8wGapLWd8iiWVbcThGjlZ1epY_5O3iwFyWUxsEdhfmQ=s128","https://play.google.com/store/apps/details?id=com.motivateapps.vibevibration"],
+["PureMirror – Makeup Mirror","Android","https://play-lh.googleusercontent.com/y0gpLtnjWN5DYKRoYLU1DfClCZg_YqXxPueVmmKgOW_zu0tQkape-jI5ov5eeWS1V56CpM35NfaLEMXht_KMatM=s128","https://play.google.com/store/apps/details?id=com.motivateapps.puremirror"],
+["Flip Timer – Countdown & Up","Android","https://play-lh.googleusercontent.com/HuIWQtWaen_MBsrASRmW9e_9Myz9rKFgZVxSq5_vA40VfXL56isCZklofMqLKj9AWzzA3Hc-oq6RpNoIQls58g=s128","https://play.google.com/store/apps/details?id=com.motivateapps.fliptimerflow"],
+["Water Eject – Speaker Cleaner","Android","https://play-lh.googleusercontent.com/4bvnoCXsgu94WalNLRQSH2ouX6i8kpksHK2mcWI_kMA83DSIZUekF05gtlML9ow69ANmxhp36CH4-EQhOXnw=s128","https://play.google.com/store/apps/details?id=com.motivateapps.watereject"],
+["Periodic Table – Elements Quiz","Android","https://play-lh.googleusercontent.com/ZJh5kFjpCM3r9Ags4x0lMl8BVz2M7L3jMDh4givIPL6i3bEhKf7lsUJ6HAsfCshlN_de4wbtf1WOmfKfIGTZtg=s128","https://play.google.com/store/apps/details?id=com.motivateapps.periodictable"],
+["Calculator calc – simple","Android","https://play-lh.googleusercontent.com/K8nHS5_bx_7wj-Eq2Ky44lvAc8nWKUT3MpnHrEY-yFw8_JecTU1rkptN1QnZqv76UeB441DX6DROLNee9i6ewEc=s128","https://play.google.com/store/apps/details?id=com.amit.motivate.calculator"],
+["Big Clock — Time Widgets","Mac","icons/big-clock-time-widgets.jpg","https://apps.apple.com/us/app/big-clock-time-widgets/id1631660311"],
+["Flip Clock – Retro Flip Timer","Mac","icons/flip-clock-retro-flip-timer.png","https://apps.apple.com/us/app/flip-clock-retro-flip-timer/id6756577039?mt=12"],
+["Analog Desk Clock Widget","Mac","icons/analog-desk-clock-widget.png","https://apps.apple.com/us/app/analog-desk-clock-widget/id1627935620?mt=12"],
+["Periodic Table TV — Elements","Apple TV","icons/periodic-table-tv-elements.jpg","https://apps.apple.com/us/app/periodic-table-tv-elements/id6759576602"],
+["Sticky Notes TV – Simple Notes","Apple TV","icons/sticky-notes-tv-simple-notes.jpg","https://apps.apple.com/us/app/sticky-notes-tv-simple-notes/id6759404864"],
+["Calendar TV – Days Left Tracker","Apple TV","icons/calendar-tv-days-left-tracker.jpg","https://apps.apple.com/us/app/calendar-tv-days-left-tracker/id6758393127"],
+["Focus Flow – Deep Work Session","Apple TV","icons/focus-flow-deep-work-session.jpg","https://apps.apple.com/us/app/focus-flow-deep-work-session/id6758265409"],
+["Big Ring TV – Focus Light","Apple TV","icons/big-ring-tv-focus-light.jpg","https://apps.apple.com/us/app/big-ring-tv-focus-light/id6758089992"],
+["Analog Clock - Digital Widget","Apple TV","icons/analog-clock-digital-widget.jpg","https://apps.apple.com/us/app/analog-clock-digital-widget/id1564813947"],
+["Elite Clock Tv – Wallpaper Time","Apple TV","icons/elite-clock-tv-wallpaper-time.jpg","https://apps.apple.com/us/app/elite-clock-tv-wallpaper-time/id1527825473"],
+["Timer Clocks","Apple TV","icons/timer-clocks.jpg","https://apps.apple.com/us/app/timer-clocks/id1522677136"],
+["Clock Tv – Watch Time on TV","Apple TV","icons/clock-tv-watch-time-on-tv.jpg","https://apps.apple.com/us/app/clock-tv-watch-time-on-tv/id1494380990"],
+["CountDown - Habit Tracker","Apple TV","icons/countdown-habit-tracker.jpg","https://apps.apple.com/us/app/countdown-habit-tracker/id1511816621"],
+["Tic Tac Toe Tv Game","Apple TV","icons/tic-tac-toe-tv-game.jpg","https://apps.apple.com/us/app/tic-tac-toe-tv-game/id1498673091"],
+["Elite Clock Vision — Photo Frame","Vision Pro","icons/elite-clock-vision-photo-frame.jpg","https://apps.apple.com/us/app/elite-clock-vision-photo-frame/id6749515310"],
+["Flip Clock - Spatial Clock","Vision Pro","icons/flip-clock-spatial-clock.jpg","https://apps.apple.com/us/app/flip-clock-spatial-clock/id6756613440"],
+["Spatial Analog Clock – Faces","Vision Pro","icons/spatial-analog-clock-faces.jpg","https://apps.apple.com/us/app/spatial-analog-clock-faces/id6480475386"],
+["Big Clock Air – Glass Funky","Vision Pro","icons/big-clock-air-glass-funky.jpg","https://apps.apple.com/us/app/big-clock-air-glass-funky/id6754467219"]
+];
+const CATS={Clocks:/clock|standby|timer clocks/i,Focus:/focus|timer|ring|tally|habit|to do/i,Notes:/note|sticky|to do|draw/i,Countdowns:/count|calendar|birthday|days/i,Widgets:/widget/i,Fun:/tic tac|facts|font|motivat|periodic/i,Tools:/calc|flash|water|vibrat|mirror|bills|call/i};
+const APPS=RAW.map(([n,p,i,u])=>({n,p,u,i:i.startsWith('http')?i:B+i,c:Object.keys(CATS).filter(k=>CATS[k].test(n))}));
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+
+/* ---- hero platform switcher ---- */
+const LEADS={iPhone:"Home Screen widgets, clocks and little tools that become part of your day.",Android:"The same simple, focused apps — rebuilt for Android.",Mac:"Desktop clocks and widgets that sit quietly on your Mac.",'Apple TV':"Turn your TV into a clock, a focus light or a countdown.",'Vision Pro':"Clocks and photo frames that float in your space."};
+function setPlat(p){const s=$('#swap');s.classList.add('out');setTimeout(()=>{s.textContent=p;s.classList.remove('out')},220);
+ $('#heroLead').textContent=LEADS[p];
+ $('#heroIcons').innerHTML=APPS.filter(a=>a.p===p).slice(0,6).map((a,k)=>`<a href="${a.u}" target="_blank" title="${a.n}"><img style="animation-delay:${k*50}ms" src="${a.i}" alt="${a.n}"></a>`).join('');
+ $$('#platSwitch button').forEach(b=>b.classList.toggle('on',b.dataset.p===p));}
+$$('#platSwitch button').forEach(b=>b.onclick=()=>setPlat(b.dataset.p));
+/* smart download: detect OS */
+const ua=navigator.userAgent;const isAnd=/android/i.test(ua),isIOS=/iphone|ipad|ipod/i.test(ua)||(/Mac/.test(ua)&&navigator.maxTouchPoints>1);
+const store=isAnd?{u:'https://play.google.com/store/apps/developer?id=Amit+verma',t:'Get it on Google Play',h:'We detected Android — showing Play Store.'}:{u:'https://apps.apple.com/us/developer/amit-verma/id1219761009',t:' Get on the App Store',h:isIOS?'We detected an Apple device — showing App Store.':'On desktop: the button adapts to iPhone/Android automatically. (Could also show a QR code here.)'};
+$('#smartBtn').href=$('#dockBtn').href=store.u;$('#smartBtn').textContent=store.t;$('#smartHint').textContent=store.h;
+setPlat(isAnd?'Android':'iPhone');
+
+/* ---- flip clock ---- */
+let h24=false,prev='';
+const flip=$('#flip');
+function mkCard(){const c=document.createElement('div');c.className='card';c.innerHTML='<div class="half top"><span></span></div><div class="half bot"><span></span></div><div class="flap"><span></span></div>';return c}
+const cards=[];[0,1,2].forEach(g=>{const grp=document.createElement('div');grp.className='grp';for(let k=0;k<2;k++){const c=mkCard();cards.push(c);grp.appendChild(c)}flip.appendChild(grp);if(g<2){const col=document.createElement('div');col.className='colon';col.textContent=':';flip.appendChild(col)}});
+function setCard(c,v,old){const [t,b,f]=c.querySelectorAll('span');const H=c.offsetHeight/2;[t,b,f].forEach(s=>s.style.cssText=`transform:translateY(${s===b?'0':'0'})`);
+ if(old===undefined||old===v){t.textContent=b.textContent=f.textContent=v;return}
+ t.textContent=v;f.textContent=old;b.textContent=old;c.classList.remove('go');void c.offsetWidth;c.classList.add('go');
+ setTimeout(()=>{b.textContent=v;f.textContent=v;c.classList.remove('go')},550);}
+function tick(){const d=new Date();let h=d.getHours();if(!h24){h=h%12||12}
+ const s=String(h).padStart(2,'0')+String(d.getMinutes()).padStart(2,'0')+String(d.getSeconds()).padStart(2,'0');
+ cards.forEach((c,k)=>setCard(c,s[k],prev?prev[k]:undefined));prev=s;}
+$('#fmt').onclick=()=>{h24=!h24;$('#fmt').textContent=h24?'12h':'24h';prev='';tick()};
+tick();setInterval(tick,1000);
+
+/* ---- playground tabs ---- */
+$$('#tabs button').forEach(b=>b.onclick=()=>{$$('#tabs button').forEach(x=>x.classList.toggle('on',x===b));$$('.pane').forEach(p=>p.classList.toggle('on',p.dataset.t===b.dataset.t))});
+/* countdown */
+const cDate=$('#cDate');cDate.value='2027-01-01';
+function cd(){const t=new Date(cDate.value+'T00:00:00')-new Date();const v=Math.max(0,t);const D=Math.floor(v/864e5),H=Math.floor(v/36e5)%24,M=Math.floor(v/6e4)%60,S=Math.floor(v/1e3)%60;
+ $('#cDays').textContent=D;$('#cSub').textContent=`${String(H).padStart(2,'0')}h ${String(M).padStart(2,'0')}m ${String(S).padStart(2,'0')}s`}
+cDate.oninput=cd;cd();setInterval(cd,1000);
+/* tally */
+let tn=0;const goal=8;function tUpd(){$('#tN').textContent=tn;$('#ringArc').style.strokeDashoffset=465-465*Math.min(tn,goal)/goal;const n=$('.ring .n');n.classList.remove('bump');void n.offsetWidth;n.classList.add('bump');if(navigator.vibrate)navigator.vibrate(10)}
+$('#tPlus').onclick=()=>{tn++;tUpd()};$('#tMinus').onclick=()=>{tn=Math.max(0,tn-1);tUpd()};
+/* sticky */
+$$('#sw button').forEach(b=>b.onclick=()=>{$$('#sw button').forEach(x=>x.classList.toggle('on',x===b));$('#sticky').style.background=b.dataset.c});
+/* quotes */
+const Q=[["Small steps every day add up to big results.","Motivate"],["Done is better than perfect.","Sheryl Sandberg"],["The secret of getting ahead is getting started.","Mark Twain"],["It always seems impossible until it's done.","Nelson Mandela"],["Focus on being productive instead of busy.","Tim Ferriss"],["You don't have to be great to start.","Zig Ziglar"]];let qi=0;
+$('#qShuffle').onclick=()=>{qi=(qi+1)%Q.length;const q=$('#qt');q.style.opacity=0;setTimeout(()=>{q.textContent=Q[qi][0];$('#qb').textContent='— '+Q[qi][1];q.style.opacity=1},250)};
+/* analog */
+const dial=$('#dial');for(let k=0;k<12;k++){const i=document.createElement('i');i.style.transform=`rotate(${k*30}deg) translateY(-95px)`;if(k%3==0)i.style.height='18px';dial.appendChild(i)}
+function an(){const d=new Date(),s=d.getSeconds()+d.getMilliseconds()/1e3,m=d.getMinutes()+s/60,h=d.getHours()%12+m/60;$('#hs').style.transform=`rotate(${s*6}deg)`;$('#hm').style.transform=`rotate(${m*6}deg)`;$('#hh').style.transform=`rotate(${h*30}deg)`;requestAnimationFrame(an)}an();
+const FACES={classic:['#f4efe6','#fff','#1d1d22','#e8703a'],night:['#141418','#22222a','#f5f5f7','#5ac8fa'],mint:['#d9f7ea','#f4fffa','#0b6b3c','#0f9d58'],rose:['#ffe3ec','#fff6f9','#7a1f45','#e8408f']};
+$$('#faces button').forEach(b=>b.onclick=()=>{const [bg,face,ink,acc]=FACES[b.dataset.f];$('#wAnalog').style.background=bg;dial.style.background=face;dial.style.boxShadow=`inset 0 0 0 10px ${ink},0 10px 30px rgba(0,0,0,.15)`;['#hh','#hm'].forEach(s=>$(s).style.background=ink);$$('#dial i').forEach(i=>i.style.background=ink);$('#hs').style.background=acc;$('.pin').style.background=acc});
+
+/* ---- finder ---- */
+let fP='All',fC=null;
+const PLATS=['All','iPhone','Android','Mac','Apple TV','Vision Pro'];
+$('#platChips').innerHTML=PLATS.map(p=>`<button class="chip${p==='All'?' on':''}" data-p="${p}">${p}<span class="c">${p==='All'?APPS.length:APPS.filter(a=>a.p===p).length}</span></button>`).join('');
+$('#catChips').innerHTML=Object.keys(CATS).map(c=>`<button class="chip cat" data-c="${c}">${c}</button>`).join('');
+$$('#platChips .chip').forEach(b=>b.onclick=()=>{fP=b.dataset.p;$$('#platChips .chip').forEach(x=>x.classList.toggle('on',x===b));render()});
+$$('#catChips .chip').forEach(b=>b.onclick=()=>{fC=fC===b.dataset.c?null:b.dataset.c;$$('#catChips .chip').forEach(x=>x.classList.toggle('on',x.dataset.c===fC));render()});
+$('#q').oninput=render;
+function render(){const q=$('#q').value.trim().toLowerCase();
+ const r=APPS.filter(a=>(fP==='All'||a.p===fP)&&(!fC||a.c.includes(fC))&&(!q||a.n.toLowerCase().includes(q)||a.p.toLowerCase().includes(q)));
+ $('#rc').textContent=`${r.length} app${r.length===1?'':'s'}`;
+ $('#grid').innerHTML=r.length?r.map((a,k)=>`<a class="app" style="animation-delay:${Math.min(k,20)*25}ms" href="${a.u}" target="_blank" rel="noopener"><img src="${a.i}" alt="" loading="lazy"><h4>${a.n}</h4><span class="pl ${a.p.replace(' ','')}">${a.p}</span></a>`).join(''):'<div class="empty">No apps match — try another word 🙂</div>';}
+render();
+
+/* ---- quiz ---- */
+const NEEDS=[["⏰","See the time beautifully","Clocks"],["🎯","Stay focused / build habits","Focus"],["📝","Remember things","Notes"],["📅","Count down to something","Countdowns"],["🎨","Decorate my Home Screen","Widgets"],["🎲","Have some fun / learn","Fun"]];
+const DEVS=[["📱","iPhone","iPhone"],["🤖","Android","Android"],["💻","Mac","Mac"],["📺","Apple TV","Apple TV"],["🥽","Vision Pro","Vision Pro"]];
+let pick={};
+function qStep(n){const box=$('#qbox');
+ if(n===0)box.innerHTML=`<div class="qprog"><span class="on"></span><span></span><span></span></div><div class="qstep"><h3>What do you want to do?</h3><div class="qopts">${NEEDS.map(x=>`<button data-v="${x[2]}"><span class="e">${x[0]}</span>${x[1]}</button>`).join('')}</div></div>`;
+ if(n===1)box.innerHTML=`<div class="qprog"><span class="on"></span><span class="on"></span><span></span></div><div class="qstep"><h3>Which device?</h3><div class="qopts">${DEVS.map(x=>`<button data-v="${x[2]}"><span class="e">${x[0]}</span>${x[1]}</button>`).join('')}</div></div>`;
+ if(n===2){let r=APPS.filter(a=>a.p===pick.dev&&a.c.includes(pick.need));let note='';if(!r.length){r=APPS.filter(a=>a.p===pick.dev).slice(0,3);note=`<p style="color:#a1a1a6;font-size:14px">Nothing exact for that combo yet — here are our top ${pick.dev} apps.</p>`}
+  box.innerHTML=`<div class="qprog"><span class="on"></span><span class="on"></span><span class="on"></span></div><div class="qstep"><h3>We think you'll love:</h3>${note}<div class="qres">${r.slice(0,4).map((a,k)=>`<a style="animation-delay:${k*80}ms" href="${a.u}" target="_blank"><img src="${a.i}" alt=""><div><b>${a.n}</b><small>${a.p} · Get it →</small></div></a>`).join('')}</div><button class="qreset" id="qr">↺ Start over</button></div>`;$('#qr').onclick=()=>qStep(0);return}
+ $$('#qbox .qopts button').forEach(b=>b.onclick=()=>{if(n===0)pick.need=b.dataset.v;else pick.dev=b.dataset.v;qStep(n+1)});}
+qStep(0);
+
+/* ---- tilt ---- */
+$$('.tcard').forEach(c=>{c.onmousemove=e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.transform=`rotateY(${(x-.5)*14}deg) rotateX(${(.5-y)*14}deg)`;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%')};c.onmouseleave=()=>c.style.transform=''});
+
+/* ---- reveal + dock ---- */
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('vis')),{threshold:.08});$$('.reveal').forEach(e=>io.observe(e));
+addEventListener('scroll',()=>$('#dock').classList.toggle('show',scrollY>700),{passive:true});
+</script>
+</body></html>
